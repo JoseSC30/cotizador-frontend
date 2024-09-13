@@ -1,0 +1,133 @@
+<div class="container-settings">
+  <div class="settings-header">
+    <h2>Configuración</h2>
+    <p>Dashboard / Configuración de la cuenta</p>
+  </div>
+
+  <section class="settings-profile">
+    <div class="profile-details">
+      <div class="profile-header">
+        <h4>Detalles de Perfil</h4>
+      </div>
+      <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
+        <div class="profile-content">
+          <div class="form-group">
+            <label for="photo">Avatar</label>
+            <div class="container-photo">
+              <div class="profile-photo">
+                <label>
+                  <figure class="image-preview">
+                    <img
+                      id="image-preview"
+                      [src]="imagePreview"
+                      alt="Preview"
+                    />
+                  </figure>
+                </label>
+                <div (click)="onDeleteImage()" class="delete-icon">
+                  <i class="bx bx-x"></i>
+                </div>
+                <label for="photo">
+                  <div class="edit-icon">
+                    <i class="bx bx-pencil"></i>
+                  </div>
+                </label>
+              </div>
+              <p class="types-files">
+                Tipos de archivos permitidos: png, jpg, jpeg.
+              </p>
+              <span *ngIf="isInvalidField('file')" class="text-danger">
+                {{ getMessageError("file") }}
+              </span>
+              <input
+                formControlName="file"
+                (change)="onFileChange($event)"
+                type="file"
+                id="photo"
+                name="photo"
+                accept="image/*"
+                hidden
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              [value]="user?.name"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <label for="apellido">Apellido</label>
+            <input
+              type="text"
+              id="apellido"
+              name="apellido"
+              [value]="user?.lastName"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              [value]="user?.email"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <label for="gender">Genero:</label>
+            <div class="content-radio">
+              <label class="custom-radio"
+                >Femenino
+                <input
+                  formControlName="gender"
+                  value="Femenino"
+                  type="radio"
+                  name="gender"
+                />
+                <span class="checkmark"></span>
+              </label>
+
+              <label class="custom-radio"
+                >Masculino
+                <input
+                  formControlName="gender"
+                  value="Masculino"
+                  type="radio"
+                  name="gender"
+                />
+                <span class="checkmark"></span>
+              </label>
+
+              <label class="custom-radio"
+                >No especificado
+                <input
+                  formControlName="gender"
+                  value="No especificado"
+                  type="radio"
+                  name="gender"
+                />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
+          <span *ngIf="isInvalidField('gender')" class="text-danger">
+            {{ getMessageError("gender") }}
+          </span>
+        </div>
+        <div class="profile-footer">
+          <button (click)="onCancel()" class="btn btn-gray">Cancelar</button>
+          <button type="submit" [disabled]="loading" class="btn btn-success">
+            Guardar Cambios
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>

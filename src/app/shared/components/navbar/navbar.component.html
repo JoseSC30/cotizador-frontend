@@ -1,0 +1,22 @@
+<nav class="navbar">
+  <div [routerLink]="routeHome" class="navbar-logo">
+    <!-- <img src="./assets/images/logo.png" alt="Logo"> -->
+    <p><span>SW</span>Cotizador</p>
+  </div>
+  <ul class="navbar-items">
+    <li class="navbar-item">
+      <span class="text-name">
+        {{ user?.name }} {{ user?.lastName }}
+      </span>
+    </li>
+    <li routerLink="/" class="navbar-item">
+      <img src="./assets/icons/ic-notifications.png" alt="Notificaciones"/>
+    </li>
+    <li [routerLink]="routeSetting" class="navbar-item">
+      <img src="./assets/icons/ic-settings.png" alt="Configuraciones"/>
+    </li>
+    <li class="navbar-item">
+      <button (click)="logout()" class="btn-logout">Cerrar Sesión</button>
+    </li>
+  </ul>
+</nav>

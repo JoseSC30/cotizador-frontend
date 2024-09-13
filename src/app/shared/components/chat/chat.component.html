@@ -1,0 +1,120 @@
+<aside class="chat-container">
+  <div class="chat">
+    <div class="chat-header">
+      <button routerLink="/dashboard/chats" class="back-btn">
+        <i class="bx bx-left-arrow-alt"></i>
+      </button>
+      <div class="user-info">
+        <img
+          src="./assets/avatars/300-1.jpg"
+          alt="User Avatar"
+          class="user-avatar"
+        />
+        <div class="user-details">
+          <h3 class="user-name">John Doe | Asesor</h3>
+          <p class="user-number">+1 (555) 123-4567</p>
+        </div>
+      </div>
+    </div>
+
+    <div #chatMessages class="chat-messages">
+      <div class="message-container left">
+        <img
+          src="./assets/avatars/300-1.jpg"
+          alt="User Avatar"
+          class="user-avatar"
+        />
+        <div class="message-content">
+          <div class="message-bubble">
+            <p class="message-text">¡Hola! ¿Cómo estás?</p>
+          </div>
+          <p class="message-info">10:30 AM</p>
+        </div>
+      </div>
+
+      <div class="message-container right">
+        <div class="message-content">
+          <div class="message-bubble">
+            <p class="message-text">¡Muy bien, gracias! ¿Y tú?</p>
+          </div>
+          <p class="message-info">10:31 AM</p>
+        </div>
+        <img
+          src="./assets/avatars/300-7.jpg"
+          alt="User Avatar"
+          class="user-avatar"
+        />
+      </div>
+
+      <div
+        class="message-container"
+        *ngFor="let message of messages"
+        [ngClass]="{
+          left: message.sender === 'bot',
+          right: message.sender === 'user'
+        }"
+      >
+        <div class="message-content">
+          <div *ngIf="message.type === 'text'" class="message-bubble">
+            <p class="message-text">{{ message.text }}</p>
+          </div>
+          <div *ngIf="message.type === 'image'" class="message-image">
+            <img
+              [src]="sanitizeImageUrl(message.image)"
+              alt="Imagen enviada"
+              class="message-image"
+              (click)="openImageModal(sanitizeImageUrl(message.image))"
+            />
+          </div>
+          <p class="message-info">{{ message.timestamp | date : "HH:mm a" }}</p>
+        </div>
+        <img
+          src="./assets/avatars/300-7.jpg"
+          alt="User Avatar"
+          class="user-avatar"
+        />
+      </div>
+    </div>
+
+    <div class="image-preview" *ngIf="selectedImage">
+      <img [src]="sanitizeImageUrl(selectedImage)" alt="Imagen seleccionada" />
+    </div>
+
+    <div class="chat-input">
+      <button (click)="openImagePicker()" class="clip-btn">
+        <i class="bx bx-paperclip bx-rotate-270"></i>
+      </button>
+      <button (click)="sendImageMessage()" class="clip-btn">
+        <i class="bx bx-check"></i>
+      </button>
+
+      <textarea
+        #textarea
+        [(ngModel)]="newMessage"
+        type="text"
+        placeholder="Escribe tu mensaje..."
+        class="message-input"
+        rows="1"
+        (input)="autoResize()"
+      >
+      </textarea>
+      <input
+        #imageInput
+        type="file"
+        class="image-input"
+        (change)="onFileSelected($event)"
+        accept="image/*"
+        hidden
+      />
+      <button (click)="sendTextMessage()" class="send-btn">
+        <i class="bx bxs-send"></i>
+      </button>
+    </div>
+  </div>
+
+  <app-image-viewer
+    *ngIf="imageUrl"
+    [imageUrl]="imageUrl"
+    (closeModal)="closeImageModal()"
+  ></app-image-viewer>
+</aside>

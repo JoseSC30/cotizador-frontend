@@ -1,0 +1,41 @@
+<div class="modal">
+    <div class="modal-container">
+
+        <button (click)="closeModal()" class="close-button"><i class="bx bx-x"></i>
+        </button>
+        <div class="modal-body">
+            <h3 class="title"><strong>Editar asesor</strong></h3>
+             <div class="form">
+
+                <form [formGroup]="formAdvisorEdit" (ngSubmit)="edit()" >
+                    <div class="input-group">
+                        <label >Nombres</label>
+                        <input type="text" formControlName="name">
+                        
+                        <div class="alert-danger" [hidden]="name.valid || name.pristine ">
+                            <span >campo de nombre vacío</span>  
+                        </div> 
+                    </div>
+    
+                    <div class="input-group">
+                        <label >Apellidos</label>
+                        <input type="text" formControlName="lastname">
+                        <div class="alert-danger" [hidden]="lastname.valid || lastname.pristine ">
+                            <span >campo de apellidos vacío</span>  
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label >Correo Electrónico</label>
+                        <input type="text" formControlName="email">
+                        <div class="alert-danger" [hidden]="email.valid || email.pristine ">
+                            <span >campo de correo electónico vacío</span>  
+                        </div>
+                    </div>
+    
+                    <button class="btn btn-save"  [disabled]="!formEdit()">Guardar cambios</button>
+                </form>                
+            </div>
+        </div>
+    </div>
+</div>

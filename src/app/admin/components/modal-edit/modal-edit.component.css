@@ -1,0 +1,25 @@
+.modal-body {
+    width: 400px;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background: #FF4040;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    padding-top: 5px;
+  }
+  
+  @media (max-width: 768px) {
+   .modal-content{
+    width: 90%;
+   }
+
+   
+  }
+  

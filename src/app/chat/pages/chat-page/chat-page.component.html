@@ -1,0 +1,51 @@
+<div class="container-chats">
+  <app-chat></app-chat>
+  <div class="chat-ia">
+    <div class="chat-messages">
+      <div *ngIf="!hasData(); else chatIa">
+        <app-introduction></app-introduction>
+      </div>
+
+      <ng-template #chatIa>
+        <app-chat-ia [data]="data"></app-chat-ia>
+      </ng-template>
+    </div>
+
+    <div *ngIf="!hasData()" class="chat-input">
+      <!-- <textarea
+        #textareaRef
+        type="text"
+        placeholder="Escribe tu mensaje..."
+        class="message-input"
+        rows="1"
+        (input)="autoResize()"
+      ></textarea> -->
+      <div class="chat-text">Generar Presupuesto</div>
+      <button (click)="openModal()" class="send-btn">
+        <i class="bx bx-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="historyChats && historyChats.length > 0" class="container-tokens">
+    <p class="tokens-counter">Historial de Chats</p>
+    <!-- <p class="tokens-status">Disponible</p> -->
+    <!-- <hr class="divider"> -->
+    <ul class="history-chats">
+      <li
+        *ngFor="let chat of historyChats"
+        (click)="showChat(chat)"
+        class="item-history"
+        [class.active]="chat.id === selectedChatId"
+      >
+        {{ chat.name }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Modal Prompt -->
+  <app-modal-prompt
+    [isOpen]="modalOpen"
+    (onClose)="closeModal()"
+  ></app-modal-prompt>
+</div>

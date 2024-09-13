@@ -1,0 +1,14 @@
+<div class="container-layout">
+  <div class="navbar" [ngClass]="{ 'full-width-navbar': showFullNavbar }">
+    <app-navbar
+      [routeHome]="'/dashboard/home'"
+      [routeSetting]="'/dashboard/settings'"
+    ></app-navbar>
+  </div>
+  <div *ngIf="showSidebar">
+    <app-sidebar [items]="menuItems"></app-sidebar>
+  </div>
+  <div class="content-layout" [ngClass]="{ 'p-left': !showFullNavbar }">
+    <router-outlet></router-outlet>
+  </div>
+</div>

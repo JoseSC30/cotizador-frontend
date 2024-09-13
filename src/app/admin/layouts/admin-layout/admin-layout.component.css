@@ -1,0 +1,23 @@
+.container-layout {
+    background-color: var(--background-color); 
+    width: 100%;
+    min-height: 100vh; 
+}
+  
+.content-layout {
+    padding: 70px 0px 0px 0px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 220px;
+    right: 0;
+}
+.full-width-navbar {
+    left: 0;
+}
+.p-left {
+    padding-left: 240px;
+}
+  

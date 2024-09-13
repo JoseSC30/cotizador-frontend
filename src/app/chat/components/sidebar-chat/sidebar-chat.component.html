@@ -1,0 +1,58 @@
+<aside class="sidebar">
+  <div class="sidebar-chats">
+    <div class="chat-header">
+        <h3 routerLink="/dashboard/chats" class="chat-title">
+          Chat a.i+
+        </h3>
+        <button (click)="newChat()" class="btn btn-primary btn-new">
+          <i class='bx bx-plus'></i>
+          Nuevo Chat
+        </button>
+        <div *ngIf="chats.length > 0">
+          <div class="chats-number">
+            <i class='bx bx-message-rounded-dots'></i>
+            Chats iniciados {{ membership?.chatStock?.occupied }}/{{ membership?.chatStock?.chatsNumber }}
+          </div>
+          <h4>Historial de chats</h4>
+        </div>
+    </div>
+    <div class="chat">
+      <div class="chats-list" *ngIf="chats.length > 0; else noChats">
+        <ul>
+          <li *ngFor="let chat of chats">
+            <a [routerLink]="['/dashboard/chats', chat.id]">
+              <div class="chat-info">
+                <div class="chat-info-perfil">
+                  <img [src]="chat.photo" alt="">
+                  <div class="chat-info-text">
+                    <span>Asesor</span>
+                    <h4>{{ chat.name }}</h4>
+                  </div>
+                </div>
+                <p>{{ chat.title }}</p>
+              </div>
+              <!-- <div class="chat-date">
+                <p>{{ chat.date }}</p>
+              </div> -->
+            </a>
+          </li>
+        </ul>
+      </div>
+      <ng-template #noChats>
+        <p class="chat-empty">Inicia una conversación con un asesor.</p>
+      </ng-template>
+    </div>
+    <div class="chat-footer">
+      <button routerLink="/dashboard/home" class="btn btn-return">
+        <i class='bx bx-home'></i>
+        Volver a inicio
+      </button>
+    </div>
+  </div>
+  
+  <!-- MODALS -->
+  <app-modal-paypal
+    [isOpen]="modalOpen"
+    (onClose)="closePaypalModal()"
+  ></app-modal-paypal>
+</aside>

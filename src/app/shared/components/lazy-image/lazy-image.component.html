@@ -1,0 +1,17 @@
+<div class="image-container">
+  <img 
+    [src]="url" 
+    [alt]="alt" 
+    class="animate__animated animate__fadeIn main-image" 
+    (load)="onLoad()"
+    [ngClass]="{ 'd-none': !hasLoaded }"
+  />
+    
+  <img 
+    src="./assets/images/image-preview.png" 
+    alt="Loading..."
+    *ngIf="!hasLoaded"
+    class="placeholder" 
+  />
+</div>
+

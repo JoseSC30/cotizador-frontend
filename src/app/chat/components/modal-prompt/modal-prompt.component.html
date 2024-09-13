@@ -1,0 +1,201 @@
+<div class="modal" [class.open]="isOpen">
+  <div class="modal-content">
+    <button class="btn close-button" (click)="closeModal()">&times;</button>
+
+    <h3 class="modal-title">Generar Prompt</h3>
+
+    <div class="modal-body">
+      <form [formGroup]="myForm" (submit)="addPrompt()">
+        <div class="col mb-20">
+          <label for="tipo">Tipo:</label>
+          <div class="content-radio">
+            <label class="custom-radio"
+              >Habitación
+              <input
+                formControlName="tipo"
+                value="Habitación"
+                type="radio"
+                (change)="onTipoSeleccionadoChange()"
+              />
+              <span class="checkmark"></span>
+            </label>
+
+            <label class="custom-radio"
+              >Cocina
+              <input
+                formControlName="tipo"
+                value="Cocina"
+                type="radio"
+                (change)="onTipoSeleccionadoChange()"
+              />
+              <span class="checkmark"></span>
+            </label>
+
+            <label class="custom-radio"
+              >Baño
+              <input
+                formControlName="tipo"
+                value="Baño"
+                type="radio"
+                (change)="onTipoSeleccionadoChange()"
+              />
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <span *ngIf="isInvalidField('tipo')" class="text-danger">
+            * {{ getMessageError("tipo") }}
+          </span>
+        </div>
+
+        <div class="row grid-container mb-20">
+          <div class="col">
+            <label for="estilo">Tipo de estilo:</label>
+            <select class="form-control" formControlName="estilo" id="estilo">
+              <option value="">Seleccione una opción</option>
+              <option value="contemporáneo">Contemporáneo</option>
+              <option value="moderno">Moderno</option>
+              <option value="rústico">Rústico</option>
+              <option value="mediterráneo">Mediterráneo</option>
+              <option value="colonial">Colonial</option>
+              <option value="minimalista">Minimalista</option>
+            </select>
+            <span *ngIf="isInvalidField('estilo')" class="text-danger">
+              * {{ getMessageError("estilo") }}
+            </span>
+          </div>
+
+          <div class="col">
+            <label for="categoria">Tipo de {{ tipoLabel }}:</label>
+            <select
+              class="form-control"
+              formControlName="tipoHabitacion"
+              id="categoria"
+            >
+              <option value="">Seleccione una opción</option>
+              <option [value]="tipo" *ngFor="let tipo of opcionesTipo">
+                {{ tipo }}
+              </option>
+            </select>
+            <span *ngIf="isInvalidField('tipoHabitacion')" class="text-danger">
+              * {{ getMessageError("tipoHabitacion") }}
+            </span>
+          </div>
+        </div>
+
+        <div class="grid-container-3 mb-20">
+          <div class="col">
+            <label for="ancho">Ancho (m):</label>
+            <input
+              formControlName="ancho"
+              class="form-control"
+              type="number"
+              placeholder="0"
+              name=""
+              id="ancho"
+              min="2"
+              max="6"
+            />
+            <span *ngIf="isInvalidField('ancho')" class="text-danger">
+              * {{ getMessageError("ancho") }}
+            </span>
+          </div>
+
+          <div class="col">
+            <label for="largo">Largo (m):</label>
+            <input
+              formControlName="largo"
+              class="form-control"
+              type="number"
+              placeholder="0"
+              name=""
+              id="largo"
+              min="2"
+              max="6"
+            />
+            <span *ngIf="isInvalidField('largo')" class="text-danger">
+              * {{ getMessageError("largo") }}
+            </span>
+          </div>
+
+          <div class="col">
+            <label for="alto">Alto (m):</label>
+            <input
+              formControlName="alto"
+              class="form-control"
+              type="number"
+              placeholder="0"
+              name=""
+              id="alto"
+              min="2"
+              max="6"
+            />
+            <span *ngIf="isInvalidField('alto')" class="text-danger">
+              * {{ getMessageError("alto") }}
+            </span>
+          </div>
+        </div>
+
+        <div class="grid-container mb-40">
+          <div class="col">
+            <label for="obra">Tipo de obra:</label>
+            <select class="form-control" formControlName="tipoObra" id="obra">
+              <option value="">Seleccione un tipo de obra</option>
+              <option value="obra gris">Obra gris</option>
+              <option value="obra blanca">Obra blanca</option>
+            </select>
+            <span *ngIf="isInvalidField('tipoObra')" class="text-danger">
+              * {{ getMessageError("tipoObra") }}
+            </span>
+          </div>
+        </div>
+
+        <div class="grid-container mb-20">
+          <button type="submit" class="btn btn-gray">Añadir al Prompt</button>
+          <button
+            type="button"
+            [disabled]="resultPromptPresupuesto.length == 0"
+            (click)="onSubmit()"
+            class="btn btn-primary"
+          >
+            Generar Presupuesto
+          </button>
+        </div>
+      </form>
+
+      <div
+        *ngIf="resultPromptPresupuesto && resultPromptPresupuesto.length > 0"
+        class="prompt-presupuesto"
+      >
+        {{ resultPromptPresupuesto }}
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="loading-overlay">
+    <div class="content-loading">
+      <div class="loader">
+        <div class="loader-square"></div>
+        <div class="loader-square"></div>
+        <div class="loader-square"></div>
+        <div class="loader-square"></div>
+        <div class="loader-square"></div>
+        <div class="loader-square"></div>
+        <div class="loader-square"></div>
+      </div>
+      <!-- <div class="loader--text"></div> -->
+      
+      <div *ngIf="!isReady">
+        <div class="loader--text images"></div>
+        <div class="loader-text">
+          Completado {{ pendingRequests }}/{{ totalRequests }}
+        </div>
+      </div>
+      <div *ngIf="isReady" class="loader-text">
+        <div class="loader--text presupuesto"></div>
+        <div class="loader-text">
+          Ya casi esta listo
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

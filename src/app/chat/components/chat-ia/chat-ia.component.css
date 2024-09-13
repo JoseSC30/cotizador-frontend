@@ -1,0 +1,85 @@
+.container-chat-ia {
+  display: flex;
+  max-height: calc(100vh - 80px); 
+}
+
+.container-body {
+  flex: 1;
+  margin: 0 20px;
+  overflow-y: auto;
+  border-radius: 5px;
+}
+.container-body::-webkit-scrollbar {
+  display: none;
+}
+
+.container-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  margin-bottom: 30px;
+}
+.images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+/* STYLES DATA PRESUPUESTO */
+.presupuesto-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  color: var(--text-color-1);
+}
+.presupuesto-subtitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+  color: var(--text-color-1);
+}
+.tab-1 {
+  display: inline-block;
+  width: 30px;
+}
+.tab-2 {
+  display: inline-block;
+  width: 50px;
+}
+.container-info {
+  margin-bottom: 20px;
+}
+.content {
+  margin-bottom: 10px;
+}
+.content-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-color-1);
+  margin-left: 30px;
+}
+.content-body {
+  margin-left: 50px;
+}
+.content-body-material, .content-body-obra, .content-body-instalacion {
+  margin-left: 40px;
+}
+.d-flex {
+  display: flex;
+  flex-direction: row;
+}
+.dimension-title, .material-title, .obra-title, .instalacion-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color-1);
+}
+.dimension-body, .material-body, .obra-body, .instalacion-body {
+  margin-left: 30px;
+}
+
+

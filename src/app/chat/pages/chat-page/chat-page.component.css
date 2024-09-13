@@ -1,0 +1,111 @@
+.container-chats {
+  display: flex;
+}
+.chat-ia {
+  flex: 1;
+  margin: 0px 0px 0px 40px;
+  display: flex;
+  flex-direction: column;
+}
+.chat-messages {
+  flex: 1;
+}
+
+/* Estilos de la barra de envío */
+.chat-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 30px;
+  margin-top: 20px;
+  background-color: #fff;
+  box-shadow: 0 3px 20px rgba(52, 61, 193, 0.2);
+}
+.chat-text {
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  color: var(--text-input);
+  user-select: none;
+}
+.message-input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  padding: 5px 10px 5px 20px;
+  font-size: 1rem;
+  color: var(--text-input);
+  background-color: transparent;
+  overflow-y: none; /* Scroll vertical cuando se supera la altura máxima */
+  resize: none; /* Desactivar el redimensionamiento manual */
+  word-wrap: break-word; /* Salto de línea automático */
+  line-height: 1.3;
+  max-height: 100px;
+}
+.message-input::placeholder {
+  color: var(--text-color-5);
+}
+
+.send-btn {
+  background-color: var(--tertiary-color);
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 10px;
+  border-radius: 50%;
+  margin-left: 10px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.send-btn:hover {
+  background-color: var(--primary-color);
+}
+
+/* Estilos para el contador de tokens */
+.container-tokens {
+  width: 200px;
+  height: max-content;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-left: 30px;
+}
+.container-tokens p {
+  line-height: 1;
+}
+.tokens-counter {
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.tokens-status {
+  color: var(--text-color-2);
+}
+.divider {
+  margin-bottom: 10px;
+}
+
+.history-chats {
+  list-style: none;
+  
+}
+.history-chats .item-history {
+  border: 1px solid var(--text-color-4);
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  user-select: none;
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+.history-chats .item-history:hover {
+  background-color: var(--text-color-4);
+  cursor: pointer;
+}
+
+.item-history.active {
+  background-color: var(--text-color-4); 
+  font-weight: 500; 
+}
+

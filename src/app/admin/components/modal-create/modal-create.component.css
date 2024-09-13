@@ -1,0 +1,103 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  background: #ff4040;
+  color: white;
+  padding: 1px 5px;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+}
+
+.modal-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--text-color-4);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(52, 61, 193, 0.1);
+  width: 100%;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.title {
+  font-family: "Inter", sans-serif;
+  color: #181c32;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.text-form {
+  color: #a1a5b7;
+  font-family: "Inter", sans-serif;
+}
+
+.form {
+  width: 100%;
+}
+
+input {
+  background-color: #f8f4f4;
+  color: #666;
+  display: inline-block;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  font-family: "Inter", sans-serif;
+}
+
+.alert-danger {
+  color: red;
+  font-size: small;
+}
+
+.input-group-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.btn-password {
+  width: 80px;
+  padding: 5px;
+  background: #7239ea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+}
+
+.btn-save {
+  background: #343ec1;
+  color: white;
+  font-family: "Inter", sans-serif;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    top: 50%;
+    left: 50%;
+  }
+  .modal-content {
+    padding: 30px;
+  }
+}

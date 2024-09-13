@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;     /* Tamaño del scroll en vertical */
+  height: 8px;    /* Tamaño del scroll en horizontal */
+  /* display: none;  Ocultar scroll */
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+*::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+*::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+}
+
+/* Cambiamos el fondo cuando esté en active */
+*::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del track */
+*::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+/* Cambiamos el fondo cuando esté en active o hover */
+*::-webkit-scrollbar-track:hover,
+*::-webkit-scrollbar-track:active {
+  background: #f0f0f0; /* Cambiar el color */
+}
+
+html,
+body,
+input,
+textarea,
+button {
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --primary-color: #343EC1;
+  --secondary-color: #1A3A78;
+  --tertiary-color: #5A67BA;
+  --background-color: #F5F2F2;
+  --text-color-1: #1B1B1B;
+  --text-color-2: #747474;
+  --text-color-3: #575F6E;
+  --text-color-4: #E2E4E5;
+  --text-color-5: #AFAFAF;
+  --text-color-6: #D0D0D0;
+  --text-color-7: #B6B6B7;
+  --text-color-8: #170F49;
+  --text-label: #242426;
+  --text-title: #242731;
+  --text-input: #575F6E;
+}
+
+/* FORM LOGIN AND REGISTER */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-label);
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid var(--text-color-6);
+  color: var(--text-input);
+  border-radius: 5px;
+  background: none;
+  outline: none;
+}
+.input-group input::placeholder {
+  color: var(--text-color-5);
+}
+.input-group input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(52, 61, 193, 0.1);
+}
+
+.text-danger {
+  color: red; 
+  font-size: 0.85rem;
+  text-align: left;
+  margin-top: 5px;
+  line-height: 1.2;
+}
+.is-invalid {
+  border: 1px solid red !important;
+}
+.is-valid {
+  border: 1px solid green !important;
+} 
+
+
+/* CUSTOM BUTTON */
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn:disabled {
+  opacity: 0.5;
+}
+.btn-primary {
+  color: #fff;
+  background-color: var(--primary-color);
+}
+.btn-primary:hover {
+  box-shadow: 0 0 15px rgba(52, 61, 193, 0.3);
+}
+.btn-gray {
+  color: var(--text-color-3);
+  background-color: var(--text-color-4);
+}
+.btn-gray:hover {
+  background-color: var(--text-color-6);
+}
+.btn-success {
+  color: #fff;
+  background-color: #6ede8a;
+}
+.btn-success:hover {
+  background-color: #4ad66d;
+}
+
+/* FORM SETTIGNS */
+.form-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  align-items: center;
+}
+.form-group label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-color-3);
+  min-width: 400px;
+  margin-bottom: 5px;
+}
+.form-group input {
+  flex: 1;
+  min-width: 300px;
+  border: none;
+  outline: none;
+  background-color: #F1F1F2;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: var(--text-input);
+}
+.form-group input::placeholder {
+  color: var(--text-color-5);
+}
+
+
+/* MARGIN AND PADDING */
+.mb-10 {
+  margin-bottom: 10px;
+}
+.mt-10 {
+  margin-top: 10px;
+}
+.mb-20 {
+  margin-bottom: 20px;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+.mb-40 {
+  margin-bottom: 40px;
+}
+.mb-60 {
+  margin-bottom: 60px;
+}
+.mt-60 {
+  margin-top: 60px;
+}
+.ml-20 {
+  margin-left: 20px;
+}
+.py-100 {
+  padding: 100px 0;
+}
+.px-60 {
+  padding: 0 60px;
+}
+.p-10 {
+  padding: 10px;
+}
+.p-50 {
+  padding: 50px;
+}
+.pr-40 {
+  padding-right: 40px !important;
+}
+
+
+

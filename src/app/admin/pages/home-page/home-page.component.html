@@ -1,0 +1,111 @@
+<div class="container">
+  <h3 class="title mt-20"><strong>Gestionar Usuarios</strong></h3>
+  <h5 class="subtitle">Dashboard / Usuarios</h5>
+
+  <div class="chart mt-60">
+    <div class="chart-content">
+      <div class="chart-header mt10">
+        <div class="header-left">
+          <h4 class="title-chart">Lista de usuarios</h4>
+          <h5 class="subtitle-chart">Clientes y Asesores</h5>
+          <button class="btn create-btn" (click)="openModalAdvisor()">
+            <i class="bx bx-plus"></i>
+            Crear usuario
+          </button>
+        </div>
+        <div class="header-right">
+          <div class="search-container">
+            <span class="search-icon"></span>
+            <input
+              type="text"
+              placeholder="Buscar..."
+              [(ngModel)]="searchAdvisor"
+              (input)="filterAdvisors()"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-users">
+      <table class="mt-20">
+        <thead>
+          <tr class="title-table">
+            <th>USUARIO</th>
+            <!-- <th>CREACION</th> -->
+            <th>CUENTA</th>
+            <th>ACCIONES</th>
+          </tr>
+        </thead>
+        <tbody>
+          <div *ngIf="userNotFound">
+            <p class="alert-danger">No se encontraron usuarios.</p>
+          </div>
+          <tr *ngFor="let advisor of DisplayList(currentPage)">
+            <td class="col-user">
+              <img [src]="imgPerfil" class="img-user" />
+
+              <div>
+                <h3 class="col-user-name">
+                  {{ advisor.name }} {{ advisor.lastName }}
+                </h3>
+                <h3 class="col-user-email">{{ advisor.email }}</h3>
+              </div>
+            </td>
+            <!-- <td class="text-center "><h3 class="col-user-time">JUL 24, 24</h3> </td>  -->
+            <td class="text-center"><h4 class="col-user-type">Asesor</h4></td>
+            <td class="text-center">
+              <div>
+                <button
+                  class="button-acc"
+                  (click)="
+                    openModalAdvisor(
+                      advisor.id,
+                      advisor.name,
+                      advisor.lastName,
+                      advisor.email
+                    )
+                  "
+                >
+                  <img [src]="iconEdit" />
+                </button>
+                <button class="button-acc" (click)="deleteAdvisor(advisor.id)">
+                  <img [src]="iconDelete" />
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pageNumber">
+      <button (click)="onPreviousPage()" [disabled]="currentPage === 1">
+        <img [src]="iconArrowLeft" />
+      </button>
+      <button
+        *ngFor="let page of setPagination()"
+        [class.active]="currentPage === page"
+        (click)="onPageChange(page)"
+      >
+        {{ page }}
+      </button>
+
+      <button
+        (click)="onNextPage()"
+        class="arrow-btn"
+        [disabled]="isLastPageSelected()"
+      >
+        <img [src]="iconArrowRight" />
+      </button>
+    </div>
+  </div>
+
+  <!-- modals -->
+  <div *ngIf="modalSwitchCreate === true">
+    <app-modal-create></app-modal-create>
+  </div>
+
+  <div *ngIf="modalSwitchEdit === true">
+    <app-modal-edit></app-modal-edit>
+  </div>
+</div>

@@ -1,0 +1,269 @@
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: "Inter", sans-serif;
+  color: #181c32;
+}
+.subtitle {
+  font-family: "Inter", sans-serif;
+  color: #a1a5b7;
+}
+
+.chart {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.chart-content {
+  justify-content: center;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.header-left {
+  flex-direction: column;
+  align-items: start;
+}
+
+.header-right {
+  flex-direction: row;
+  justify-content: end;
+}
+
+.title-chart {
+  color: #3f4254;
+  font-family: "Inter", sans-serif;
+  margin-bottom: 10px;
+}
+
+.subtitle-chart {
+  color: #a1a5b7;
+  font-family: "Inter", sans-serif;
+  margin-bottom: 10px;
+}
+
+.create-btn {
+  background: #343ec1;
+  color: white;
+  font-family: "Inter", sans-serif;
+}
+
+.search-container {
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #f8f4f4;
+  color: #666;
+  height: 40px;
+  border: none;
+  border-radius: 7px;
+  width: 300px;
+  padding: 5px 10px;
+}
+
+.search-container input {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  margin-left: 10px;
+  color: #666;
+  flex: 1;
+}
+
+/* .search-container input{
+  outline: none;
+  background-color: #f8f4f4; 
+  color: #666; 
+  display: inline-block;
+  height: 40px;
+  border: none;
+  border-radius: 7px;
+  width: 300px;
+  padding-left: 40px;
+
+} */
+
+.alert-danger {
+  color: red;
+  font-size: small;
+}
+
+.search-container .search-icon {
+  /* position: absolute;
+  left: 10px; 
+  top: 50%;
+  transform: translateY(-50%); */
+  width: 20px;
+  height: 20px;
+  background-image: url("src/assets/icons/ic-search.png");
+  background-size: cover;
+}
+.table-users {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  width: 90%;
+  border-collapse: collapse;
+  /* margin: 20px; */
+}
+
+.title-table {
+  color: #a1a5b7;
+  font-family: "Inter", sans-serif;
+}
+
+th {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+td {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.col-user {
+  padding-top: 15px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.img-user {
+  height: 50px;
+}
+
+.col-user-name,
+.col-user-time {
+  font-size: 15px;
+  margin-top: 5px;
+  padding-left: 10px;
+  font-family: "Inter", sans-serif;
+  color: #3f4254;
+}
+
+.col-user-email {
+  margin-top: 5px;
+  font-size: 15px;
+  padding-left: 10px;
+  font-family: "Inter", sans-serif;
+  color: #a1a5b7;
+}
+
+.col-user-type {
+  font-size: 10px;
+  background: #f8f5ff;
+  color: #7239ea;
+  font-family: "Inter", sans-serif;
+  display: inline-block;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.button-acc {
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.pageNumber {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 3em;
+}
+
+.pageNumber button {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #343ec1;
+  font-weight: bold; /* Opcionalmente, también puedes usar 'bolder' */
+}
+
+.pageNumber button.active {
+  background-color: #343ec1;
+  color: white;
+}
+
+.pageNumber button:hover {
+  background-color: #343ec1;
+  color: white;
+}
+
+@media (max-width: 950px) {
+  .chart {
+    width: 100%;
+    overflow: scroll;
+  }
+
+  .chart-content {
+    display: flex;
+  }
+
+  .chart-header {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .search-container {
+    margin-top: 10px;
+  }
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  th,
+  td {
+    width: 90%;
+    box-sizing: border-box;
+    text-align: center;
+    flex: 1;
+  }
+  tr {
+    margin-bottom: 15px;
+  }
+
+  .col-user {
+    padding-top: 10px;
+    padding-left: 30px;
+    justify-content: left;
+  }
+}

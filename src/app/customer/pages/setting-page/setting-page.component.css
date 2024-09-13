@@ -1,0 +1,234 @@
+.container-settings {
+  padding: 40px 60px;  
+}
+.settings-header {
+  margin-bottom: 30px;
+  padding: 0 25px;
+}
+.settings-header h2, p {
+  line-height: 1;
+  color: var(--text-title);
+}
+.settings-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.settings-header p {
+  font-size: 1rem;
+  color: var(--text-color-2);
+}
+
+.settings-profile {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 1px 1px 4px rgba(52, 61, 193, 0.1);
+}
+.profile-header, .profile-content, .profile-footer {
+  padding: 30px 40px;
+}
+.profile-header {
+  border-bottom: 1px solid var(--text-color-4);
+}
+.profile-header h4 {
+  font-size: 1.1rem;
+  line-height: 1;
+  font-weight: 500;
+  color: var(--text-color-2);
+}
+
+.profile-content {
+  padding-top: 50px;
+  border-bottom: 1px solid var(--text-color-4);
+}
+
+.profile-footer {
+  text-align: end;
+}
+.btn {
+  width: max-content;
+  padding: 10px 20px;
+}
+.btn-success {
+  margin-left: 10px;
+}
+
+
+/* IMAGE PROFILE */
+.profile-photo {
+  position: relative;
+  display: inline-block;
+  z-index: 0;
+}
+
+.image-preview {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+}
+
+/* .image-preview:hover::before {
+  content: "Cambiar imagen";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  color: var(--text-color-2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+} */
+
+#image-preview {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+}
+
+.edit-icon, .delete-icon {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  color: var(--text-color-2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.edit-icon i {
+  font-size: 1.3rem;
+}
+.delete-icon i {
+  font-size: 1.4rem;
+}
+
+.delete-icon:hover::after {
+  content: "Eliminar imagen";
+  position: absolute;
+  top: -30px;
+  right: 50%;
+  transform: translateX(50%);
+  background-color: #fff;
+  color: var(--text-color-2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.edit-icon:hover::after {
+  content: "Editar imagen";
+  position: absolute;
+  top: -30px;
+  right: 50%;
+  transform: translateX(50%);
+  background-color: #fff;
+  color: var(--text-color-2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.delete-icon:hover {
+  background-color: #e92929;
+  color: #fff;
+}
+.edit-icon:hover {
+  background-color: var(--tertiary-color);
+  color: #fff;
+}
+
+.edit-icon {
+  top: -10px;
+  right: -10px;
+}
+
+.delete-icon {
+  bottom: -10px;
+  right: -10px;
+}
+.types-files {
+  font-size: 0.9rem;
+  color: var(--text-color-5);
+  font-weight: 500;
+  margin: 12px 0px 10px 0px;
+}
+
+
+/* CUSTOM RADIO BUTTON */
+.content-radio {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  /* gap: 20px; */
+}
+.content-radio label {
+  text-wrap: nowrap;
+}
+/* Estilo base para los radio buttons */
+.custom-radio {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px; /* Espacio a la izquierda para el círculo */
+  margin-right: 15px; /* Espacio entre los radio buttons */
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+}
+/* Estilo para el círculo del radio button */
+.custom-radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+/* Estilo para el círculo del radio button seleccionado */
+.custom-radio input:checked ~ .checkmark {
+  background-color: var(--tertiary-color);
+}
+/* Estilo para el círculo */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+/* Estilo para el punto dentro del círculo */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+/* Estilo para el punto dentro del círculo cuando está seleccionado */
+.custom-radio input:checked ~ .checkmark:after {
+  display: block;
+}
+/* Estilo para el punto dentro del círculo */
+.checkmark:after {
+  top: 5px;
+  left: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: white;
+}
+
+

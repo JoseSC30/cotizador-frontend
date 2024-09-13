@@ -1,0 +1,103 @@
+<div class="container-home">
+  <section class="banner">
+    <div class="banner-content">
+      <h3 class="banner-title">Cotizador con Inteligencia Artificial</h3>
+      <p class="banner-paragraph">
+        A través de nuestra aplicación, puedes obtener estimaciones rápidas y
+        convenientes para la construcción de tu casa utilizando inteligencia
+        artificial.
+      </p>
+      <button routerLink="/dashboard/chats" class="btn btn-primary">
+        <i class="bx bx-chat"></i>
+        Chatss
+      </button>
+    </div>
+  </section>
+
+  <section class="container about">
+    <div class="about-main">
+      <article class="about-icons">
+        <img src="./assets/images/img-price.png" alt="" class="about-icon" />
+        <h3 class="about-title">Estimaciones Rápidas</h3>
+        <p class="about-paragraph">
+          Obtén estimaciones rápidas y convenientes para la construcción de tu
+          casa.
+        </p>
+      </article>
+
+      <article class="about-icons">
+        <img src="./assets/images/img-chat.png" alt="" class="about-icon" />
+        <h3 class="about-title">Asesoría en Tiempo Real</h3>
+        <p class="about-paragraph">
+          Chatea con nuestros asesores en tiempo real para recibir orientación y
+          aclarar dudas.
+        </p>
+      </article>
+
+      <article class="about-icons">
+        <img src="./assets/images/img-draw.png" alt="" class="about-icon" />
+        <h3 class="about-title">Fácil de Usar</h3>
+        <p class="about-paragraph">
+          Nuestra aplicación es fácil de usar, incluso para aquellos sin
+          experiencia en construcción.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="price container">
+    <div class="price-content">
+      <div class="price-left">
+        <div class="price-header mb-20">
+          <img src="./assets/images/ic-group-price.png" alt="icon price" />
+          <div class="price-text ml-20">
+            <p class="price-paragraph">Para uso individual</p>
+            <h3 class="price-title">Plan Básico</h3>
+          </div>
+        </div>
+        <p class="price-paragraph mb-20">
+          Accede a estimaciones rápidas y convenientes para la construcción de
+          tu casa.
+        </p>
+        <p class="price-money"><span>$5</span> /mensual</p>
+        <button (click)="openPayPalModal()" class="btn btn-primary">
+          <i class="bx bxs-wallet-alt"></i>
+          Adquirir Membresía
+        </button>
+      </div>
+      <div class="price-right">
+        <h3 class="price-title mb-20">Lo que incluye</h3>
+        <ul class="price-list">
+          <li>
+            <img
+              src="./assets/images/ic-check.png"
+              alt="img-icon-check"
+            />Estimaciones generadas por inteligencia artificial
+          </li>
+          <li>
+            <img src="./assets/images/ic-check.png" alt="img-icon-check" />Chat
+            en tiempo real con asesores
+          </li>
+          <li>
+            <img
+              src="./assets/images/ic-check.png"
+              alt="img-icon-check"
+            />Soporte técnico básico
+          </li>
+          <li>
+            <img
+              src="./assets/images/ic-check.png"
+              alt="img-icon-check"
+            />Acceso individual
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODALS -->
+  <app-modal-paypal
+    [isOpen]="modalOpen"
+    (onClose)="closePaypalModal()"
+  ></app-modal-paypal>
+</div>

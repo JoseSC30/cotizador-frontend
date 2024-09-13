@@ -1,0 +1,112 @@
+<div class="container-chat-ia">
+  <div class="container-body">
+    <div class="container-images">
+      <div class="images" *ngFor="let imagen of data?.images">
+        <app-lazy-image
+          [url]="imagen"
+          [alt]="imagen"
+          (click)="openImageModal(imagen)"
+        ></app-lazy-image>
+      </div>
+    </div>
+    <div *ngIf="presupuesto">
+      <h2 class="presupuesto-title">Presupuesto Estimado</h2>
+      <h3 class="presupuesto-subtitle">Espacios Interiores:</h3>
+      <div class="container-info">
+        <div
+          class="content"
+          *ngFor="
+            let habitacion of presupuesto.detalles_proyecto;
+            let i = index
+          "
+        >
+          <h3 class="content-title">{{ i + 1 }}. {{ habitacion.nombre }}</h3>
+          <div class="content-body d-flex">
+            <h4 class="dimension-title">Dimensiones:</h4>
+            <ul class="dimension-body">
+              <li>Ancho: {{ habitacion.dimensiones.ancho }}m</li>
+              <li>Largo: {{ habitacion.dimensiones.largo }}m</li>
+              <li>Alto: {{ habitacion.dimensiones.alto }}m</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <h3 class="presupuesto-subtitle">
+        Materiales de Construcción Necesarios:
+      </h3>
+      <div class="container-info">
+        <div
+          class="content"
+          *ngFor="let material of presupuesto.materiales_construccion"
+        >
+          <div class="content-body-material">
+            <li class="material-title">{{ material.nombre }}:</li>
+            <div class="material-body">
+              {{ material.cantidad }} unidades x
+              {{ material.precio_unitario }} Bs = {{ material.total }} Bs
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3 class="presupuesto-subtitle">Mano de Obra:</h3>
+      <div class="container-info">
+        <div
+          class="content"
+          *ngFor="let obra of presupuesto.mano_de_obra_requerida"
+        >
+          <div class="content-body-obra">
+            <li class="obra-title">{{ obra.nombre }}:</li>
+            <div class="obra-body">
+              {{ obra.dias }} días x
+              {{ obra.precio_dia }} Bs = {{ obra.total }} Bs
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3 class="presupuesto-subtitle">Instalaciones:</h3>
+      <div class="container-info">
+        <div
+          class="content"
+          *ngFor="let instalacion of presupuesto.instalaciones"
+        >
+          <div class="content-body-instalacion">
+            <li class="instalacion-title">{{ instalacion.nombre }}:</li>
+            <div class="instalacion-body">
+              {{ instalacion.cantidad }} unidades x
+              {{ instalacion.precio_unitario }} Bs = {{ instalacion.total }} Bs
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3 class="presupuesto-subtitle">Costos Estimados:</h3>
+        <div class="container-info">
+          <li class="content-body-instalacion">
+            <span class="instalacion-title">Materiales: </span
+            >{{ presupuesto.costos_estimados.materiales }} Bs
+          </li>
+          <li class="content-body-instalacion">
+            <span class="instalacion-title">Mano de Obra: </span
+            >{{ presupuesto.costos_estimados.mano_de_obra }} Bs
+          </li>
+          <li class="content-body-instalacion">
+            <span class="instalacion-title">Instalaciones: </span
+            >{{ presupuesto.costos_estimados.instalaciones }} Bs
+          </li>
+        </div>
+      <h3 class="presupuesto-subtitle">Costo Total del Presupuesto:</h3>
+      <div class="container-info">
+        <li class="content-body-instalacion">
+          <span class="instalacion-title">Total: </span
+          >{{ presupuesto.total_final }} Bs
+        </li>
+      </div>
+      <p>{{ presupuesto.nota }}</p>
+    </div>
+  </div>
+
+  <app-image-viewer
+    *ngIf="imageUrl"
+    [imageUrl]="imageUrl"
+    (closeModal)="closeImageModal()"
+  ></app-image-viewer>
+</div>

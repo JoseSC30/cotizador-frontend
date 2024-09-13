@@ -1,0 +1,21 @@
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <img [src]="photo" alt="Logo">
+    <p> {{ user?.name }} {{ user?.lastName }}</p>
+    <!-- <p><span>SW</span>Logo</p> -->
+  </div>
+  <div class="sidebar-menu">
+    <p class="sidebar-menu-title">Menu</p>
+    <ul class="sidebar-menu-list">
+      <li
+        *ngFor="let item of items"
+        [routerLink]="item.route"
+        routerLinkActive="active"
+        class="sidebar-menu-item"
+        >
+        <i [ngClass]="['bx', item.icon]"></i>
+        <span class="sidebar-menu-label">{{ item.name }}</span>
+      </li>
+    </ul>
+  </div>
+</aside>

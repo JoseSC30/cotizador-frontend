@@ -1,0 +1,41 @@
+<div class="modal" [class.open]="isOpen">
+  <div class="modal-content">
+    <button class="btn close-button" (click)="closeModal()">&times;</button>
+
+    <h3 class="modal-title">Selecciona el Metodo de Pago:</h3>
+    <div class="content-methods">
+      <div
+        *ngFor="let method of paymentMethods; let i = index"
+        class="payment-method"
+        [ngClass]="{ selected: selectedPaymentMethod === method.label }"
+        (click)="selectPaymentMethod(i)"
+      >
+        <div class="payment-icon">
+          <img
+            [ngClass]="{ 'ic-paypal': method.label === 'paypal' }"
+            [src]="method.image"
+            alt="icon {{ method.label }}"
+          />
+        </div>
+        <p class="payment-text">{{ method.name }}</p>
+        <div class="check-icon" *ngIf="selectedPaymentMethod === method.label">
+          <i class="bx bx-check"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-payment">
+      <div
+        class="buttons-paypal"
+        [ngStyle]="{
+          display: selectedPaymentMethod === 'paypal' ? 'block' : 'none'
+        }"
+      >
+        <span>Paypal</span>
+        <div #paypal></div>
+        <!-- <ngx-paypal [config]="payPalConfig"></ngx-paypal> -->
+      </div>
+      <div *ngIf="selectedPaymentMethod === 'card-credit'">Tarjeta de credito</div>
+    </div>
+  </div>
+</div>

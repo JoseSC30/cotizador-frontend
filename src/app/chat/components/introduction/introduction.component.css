@@ -1,0 +1,38 @@
+.container-introduction {
+  display: grid;
+  place-content: center;
+  place-items: center;
+  height: 100%;
+  width: 100%;
+}
+.cms-subtitle, .cms-text {
+  font-weight: 600;
+  color: var(--text-color-1);
+  margin-bottom: 20px;
+}
+.cms-subtitle {
+  font-size: 1.5rem;
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+}
+.cms-title {
+  font-size: 2.3rem;
+  font-weight: 600;
+  color: var(--text-color-1);
+  margin-bottom: 20px;
+}
+.cms-title span {
+  color: var(--primary-color);
+}
+.cms-text {
+  font-size: 1.8rem;
+}
+.content-video {
+  width: 60%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+
