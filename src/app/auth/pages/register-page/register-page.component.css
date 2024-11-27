@@ -3,7 +3,8 @@
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
-  background-color: var(--background-color);
+  background-color: #fdf8f1;
+  /* Beige claro */
   min-height: 100vh;
 }
 
@@ -13,6 +14,8 @@
   align-items: center;
   padding: 100px 80px;
   width: 50%;
+  background-color: #ffffff;
+  /* Blanco */
 }
 
 .register-left {
@@ -20,30 +23,37 @@
   background-size: cover;
   background-position: center;
   width: 50%;
+  background-color: #6b4226;
+  /* Marrón oscuro como fallback */
 }
 
 .register-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
-  border: 1px solid var(--text-color-4);
+  border: 1px solid #d4a373;
+  /* Terracota */
   border-radius: 10px;
   padding: 50px 40px;
-  box-shadow: 0 0 10px rgba(52, 61, 193, 0.1);
+  box-shadow: 0 0 10px rgba(107, 66, 38, 0.3);
+  /* Sombra marrón translúcida */
   width: 100%;
+  background-color: #ffffff;
+  /* Blanco */
 }
 
 .register-title {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 20px;
-  color: var(--text-title);
+  color: #6b4226;
+  /* Marrón oscuro */
 }
 
 .register-description {
   font-size: 1rem;
-  color: var(--text-color-2);
+  color: #6b4226;
+  /* Marrón oscuro */
   margin-bottom: 20px;
   line-height: 1.2;
 }
@@ -53,18 +63,53 @@
 }
 
 .register-form p {
-  color: var(--text-label);
+  color: #6b4226;
+  /* Marrón oscuro */
   font-size: 1rem;
 }
 
 .register-form p a {
   text-decoration: none;
-  color: var(--primary-color);
-}
-.register-form p a:hover {
-  text-shadow: 0 0 10px rgba(52, 61, 193, 0.2);
+  color: #d4a373;
+  /* Terracota */
+  font-weight: bold;
 }
 
+.register-form p a:hover {
+  text-shadow: 0 0 10px rgba(212, 163, 115, 0.5);
+  /* Sombra terracota */
+}
+
+/* Estilo del botón de registro */
+.register-button {
+  background-color: #d4a373;
+  /* Terracota */
+  color: #ffffff;
+  /* Blanco */
+  border: none;
+  border-radius: 50px;
+  padding: 10px 60px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.register-button:hover {
+  background-color: #b5835a;
+  /* Marrón claro */
+  box-shadow: 0 0 20px rgba(107, 66, 38, 0.3);
+  /* Sombra marrón translúcida */
+}
+
+.register-button:disabled {
+  background-color: #f0e4d8;
+  /* Beige claro */
+  color: #b5835a;
+  /* Marrón claro */
+  cursor: not-allowed;
+  box-shadow: none;
+}
 
 /* Media query para pantallas más pequeñas */
 @media (max-width: 1050px) {
@@ -76,9 +121,9 @@
   .register-right {
     width: 100%;
   }
-  
+
   .register-right {
-    padding: 100px 150px;
+    padding: 100px 50px;
   }
 }
 
@@ -96,10 +141,52 @@
   .register-right {
     padding: 30px;
   }
-  
+
   .register-content {
     padding: 20px;
   }
 }
 
+/* Estilo del botón "Registrarse" */
+.btn-primary {
+  background-color: #d4a373;
+  /* Terracota */
+  color: #ffffff;
+  /* Blanco */
+  border: none;
+  border-radius: 50px;
+  padding: 10px 60px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
 
+.btn-primary:hover {
+  background-color: #b5835a;
+  /* Marrón claro */
+  box-shadow: 0 0 20px rgba(107, 66, 38, 0.3);
+  /* Sombra marrón translúcida */
+}
+
+.btn-primary:disabled {
+  background-color: #f0e4d8;
+  /* Beige claro */
+  color: #b5835a;
+  /* Marrón claro */
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Ajuste de enlaces para el tema */
+.link a {
+  color: #d4a373;
+  /* Terracota */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.link a:hover {
+  text-shadow: 0 0 5px rgba(212, 163, 115, 0.5);
+  /* Sombra terracota */
+}
