@@ -103,9 +103,9 @@ export class SidebarChatComponent implements OnInit {
     }
     this.chats.push({
       id: id + 1,
-      photo: './assets/avatars/300-1.jpg',
-      name: 'John Doe',
-      title: 'Cotización de construcción',
+      photo: './assets/avatars/300-2.jpg',
+      name: 'Martha Siles',
+      title: 'Diseño y Cotización de muebles',
     });
   }
 

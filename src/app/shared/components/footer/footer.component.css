@@ -1,6 +1,6 @@
 .footer {
-  background-color: #000;
-  color: #fff;
+  background-color: #6b4226; /* Marrón oscuro */
+  color: #ffffff; /* Blanco */
   padding: 100px;
   display: flex;
   flex-direction: row;
@@ -13,12 +13,14 @@
   font-size: 1.2rem;
   font-weight: 500;
   margin-bottom: 25px;
+  color: #d4a373; /* Terracota */
 }
 
 .footer-paragraph {
   font-size: 1rem;
   font-weight: 300;
   margin-bottom: 10px;
+  color: #fdf8f1; /* Beige claro */
 }
 
 .footer-location, .footer-phone {
@@ -27,10 +29,12 @@
   align-items: center;
   margin-bottom: 10px;
 }
+
 .footer-location .footer-paragraph, 
 .footer-phone .footer-paragraph {
   margin: 0;
 }
+
 .footer-icon {
   width: 45px;
   height: 45px;
@@ -45,17 +49,28 @@
   margin-top: 30px;
 }
 
+.footer-social img {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1); /* Hace que los íconos sean blancos */
+  transition: filter 0.3s ease;
+}
 
-@media (max-width: 768px){
+.footer-social img:hover {
+  filter: brightness(0.8) sepia(1) hue-rotate(-30deg) saturate(5); /* Acento en terracota */
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
   .footer {
     flex-direction: column;
   }
-  
+
   .footer-social {
     justify-content: center;
   }
+
   .footer-social img {
     margin-right: 20px;
   }
 }
-

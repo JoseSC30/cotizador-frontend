@@ -2,52 +2,48 @@
   <section class="hero-container">
     <h1 class="hero-title">COTIZADOR DE MUEBLES</h1>
     <p class="hero-paragraph">
-      Genera cotizaciones de muebles con ayuda de Inteligencia Artificial, y ayuda de
-      nuestros asesores.
+      Diseña y cotiza tus muebles ideales con ayuda de Inteligencia Artificial y el apoyo de nuestros asesores expertos.
     </p>
-    <a routerLink="/auth/login" class="btn btn-primary btn-submit"
-      >¡Empieza ya!</a
-    >
+    <a routerLink="/auth/login" class="btn btn-primary btn-submit">
+      ¡Empieza ahora!
+    </a>
   </section>
 </header>
 
-<section class="container about py-100">
+<section class="container about">
   <h2 class="subtitle">Beneficios</h2>
   <p class="paragraph">
-    A través de nuestra aplicación, bla bla bla ...
+    Nuestra aplicación te permite crear tu mueble perfecto, obteniendo una cotización rápida y precisa con el respaldo de nuestra inteligencia artificial.
   </p>
 
   <div class="about-main">
     <article class="about-icons">
-      <img src="./assets/images/img-price.png" alt="" class="about-icon" />
+      <img src="./assets/images/precio.png" alt="Estimaciones Rápidas" class="about-icon" />
       <h3 class="about-title">Estimaciones Rápidas</h3>
       <p class="about-paragraph">
-        Obtén estimaciones rápidas y convenientes para la construcción de tu
-        casa.
+        Genera cotizaciones de manera inmediata y eficiente para tus proyectos de mobiliario.
       </p>
     </article>
 
     <article class="about-icons">
-      <img src="./assets/images/img-chat.png" alt="" class="about-icon" />
+      <img src="./assets/images/agente.png" alt="Asesoría en Tiempo Real" class="about-icon" />
       <h3 class="about-title">Asesoría en Tiempo Real</h3>
       <p class="about-paragraph">
-        Chatea con nuestros asesores en tiempo real para recibir orientación y
-        aclarar dudas.
+        Comunícate con nuestros asesores en tiempo real para resolver tus dudas y recibir recomendaciones personalizadas.
       </p>
     </article>
 
     <article class="about-icons">
-      <img src="./assets/images/img-draw.png" alt="" class="about-icon" />
+      <img src="./assets/images/facil-de-usar.png" alt="Fácil de Usar" class="about-icon" />
       <h3 class="about-title">Fácil de Usar</h3>
       <p class="about-paragraph">
-        Nuestra aplicación es fácil de usar, incluso para aquellos sin
-        experiencia en construcción.
+        Diseña y cotiza muebles de manera intuitiva, incluso si no tienes experiencia previa en diseño o construcción.
       </p>
     </article>
   </div>
 </section>
 
-<section class="container p-50">
+<section class="container video">
   <div class="video-container">
     <app-video-player></app-video-player>
   </div>
@@ -55,50 +51,34 @@
 
 <section class="price">
   <h2 class="subtitle">Precios</h2>
-  <p class="paragraph mb-60">
-    Nuestra aplicación ofrece opciones de precios flexibles para adaptarse a tus
-    necesidades individuales o de equipo.
+  <p class="paragraph">
+    Ofrecemos planes flexibles diseñados para adaptarse a tus necesidades individuales o de equipo.
   </p>
+
   <div class="price-content">
     <div class="price-left">
-      <div class="price-header mb-20">
-        <img src="./assets/images/ic-group-price.png" alt="icon price" />
-        <div class="price-text ml-20">
+      <div class="price-header">
+        <img src="./assets/images/ic-group-price.png" alt="Plan Básico Icono" />
+        <div class="price-text">
           <p class="price-paragraph">Para uso individual</p>
           <h3 class="price-title">Plan Básico</h3>
         </div>
       </div>
-      <p class="price-paragraph mb-20">
-        Accede a estimaciones rápidas y convenientes para la construcción de tu
-        casa.
+      <p class="price-paragraph">
+        Ideal para usuarios que necesitan estimaciones rápidas y confiables para sus proyectos de muebles.
       </p>
-      <p class="price-money"><span>$5</span> /mensual</p>
+      <p class="price-money"><span>$5</span> /mes</p>
     </div>
     <div class="price-right">
-      <h3 class="price-title mb-20">Lo que incluye</h3>
+      <h3 class="price-title">Incluye</h3>
       <ul class="price-list">
-        <li>
-          <img
-            src="./assets/images/ic-check.png"
-            alt="img-icon-check"
-          />Estimaciones generadas por inteligencia artificial
-        </li>
-        <li>
-          <img src="./assets/images/ic-check.png" alt="img-icon-check" />Chat en
-          tiempo real con asesores
-        </li>
-        <li>
-          <img src="./assets/images/ic-check.png" alt="img-icon-check" />Soporte
-          técnico básico
-        </li>
-        <li>
-          <img src="./assets/images/ic-check.png" alt="img-icon-check" />Acceso
-          individual
-        </li>
+        <li><img src="./assets/images/ic-check.png" alt="Icono de Check" /> Generación de cotizaciones con IA</li>
+        <li><img src="./assets/images/ic-check.png" alt="Icono de Check" /> Chat en tiempo real con asesores</li>
+        <li><img src="./assets/images/ic-check.png" alt="Icono de Check" /> Soporte técnico básico</li>
+        <li><img src="./assets/images/ic-check.png" alt="Icono de Check" /> Acceso para un solo usuario</li>
       </ul>
     </div>
   </div>
 </section>
 
 <app-footer></app-footer>
-

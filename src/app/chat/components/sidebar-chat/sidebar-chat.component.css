@@ -28,23 +28,29 @@
   text-transform: uppercase;
   margin-bottom: 25px;
   cursor: default;
+  color: #333;
 }
 .btn-new {
   border-radius: 30px;
   width: max-content;
   margin-bottom: 25px;
   padding: 10px 20px;
+  background-color: #d4a373; /* Color de fondo aplicado */
+  color: #333; /* Ajusta el color del texto según sea necesario */
+  border: none; /* Elimina el borde, si no es necesario */
 }
 .btn-return {
   border-radius: 30px;
   border: 1px solid var(--text-color-4);
   background-color: #fff;
   padding: 6px;
-  color: #b5835a;
+  color: #000; /* Cambiado a negro */
 }
 .btn-return:hover {
-  border: 1px solid #b5835a;
-  box-shadow: 0 0 15px rgba(218, 191, 105, 0.774);
+  /*border: 1px solid var(--tertiary-color);
+  box-shadow: 0 0 15px rgba(52, 61, 193, 0.3);*/
+  background-color: #fce8db; /* Un color más oscuro o distinto para el efecto hover */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Opcional, para un efecto adicional */
 }
 .btn-new, .btn-return {
   display: flex;
@@ -59,7 +65,7 @@
   height: 40px;
   border-radius: 50%;
   background-color: var(--text-color-4);
-  color: #b5835a;
+  color: #000; /* Color del ícono: negro */
   display: grid;
   place-items: center;
 }
@@ -86,13 +92,16 @@
   margin-bottom: 10px;
 }
 .chats-number {
-  display: flex;
-  align-items: center;
-  color: var(--primary-color);
+  font-size: 1.1rem; /* Mantén el tamaño de fuente */
+  font-weight: 500; /* Mantén el grosor */
+  color: #000; /* Cambia el color a negro */
+  display: flex; /* Mantén la disposición */
+  align-items: center; /* Centra verticalmente los elementos */
 }
 .chats-number i {
-  font-size: 1.5rem;
-  margin-right: 10px;
+  font-size: 1.5rem; /* Mantén el tamaño del ícono */
+  margin-right: 10px; /* Espacio entre el ícono y el texto */
+  color: #000; /* Cambia también el color del ícono a negro */
 }
 .chats-list ul {
   list-style: none;
@@ -131,13 +140,14 @@
 .chat-info-text h4 {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--text-color-1);
-  line-height: 1;
+  color: #000; /* Color negro */
+  line-height: 1.2; /* Opcional: Ajusta el espacio entre líneas */
 }
 .chat-info-perfil {
   display: flex;
   flex-direction: row;
   margin-bottom: 5px;
+  color:#333;
 }
 .chat-info-perfil img {
   width: 45px;

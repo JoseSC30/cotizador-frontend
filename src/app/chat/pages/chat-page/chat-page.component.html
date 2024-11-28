@@ -2,29 +2,26 @@
   <app-chat></app-chat>
   <div class="chat-ia">
     <div class="chat-messages">
+
+    <!-- boton Diseñar Mueble-->
+      <div *ngIf="!hasData()" class="chat-input">
+        <div class="chat-text">Diseñar Mueble</div>
+        <button (click)="openModal()" class="send-btn">
+          <i class="bx bx-paper-plane"></i>
+        </button>
+      </div>
       <div *ngIf="!hasData(); else chatIa">
         <app-introduction></app-introduction>
       </div>
+
 
       <ng-template #chatIa>
         <app-chat-ia [data]="data"></app-chat-ia>
       </ng-template>
     </div>
 
-    <div *ngIf="!hasData()" class="chat-input">
-      <!-- <textarea
-        #textareaRef
-        type="text"
-        placeholder="Escribe tu mensaje..."
-        class="message-input"
-        rows="1"
-        (input)="autoResize()"
-      ></textarea> -->
-      <div class="chat-text">Generar Presupuesto</div>
-      <button (click)="openModal()" class="send-btn">
-        <i class="bx bx-paper-plane"></i>
-      </button>
-    </div>
+
+
   </div>
 
   <div *ngIf="historyChats && historyChats.length > 0" class="container-tokens">
