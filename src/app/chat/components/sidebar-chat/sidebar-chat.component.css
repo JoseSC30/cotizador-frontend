@@ -40,11 +40,11 @@
   border: 1px solid var(--text-color-4);
   background-color: #fff;
   padding: 6px;
-  color: var(--tertiary-color);
+  color: #b5835a;
 }
 .btn-return:hover {
-  border: 1px solid var(--tertiary-color);
-  box-shadow: 0 0 15px rgba(52, 61, 193, 0.3);
+  border: 1px solid #b5835a;
+  box-shadow: 0 0 15px rgba(218, 191, 105, 0.774);
 }
 .btn-new, .btn-return {
   display: flex;
@@ -59,7 +59,7 @@
   height: 40px;
   border-radius: 50%;
   background-color: var(--text-color-4);
-  color: var(--tertiary-color);
+  color: #b5835a;
   display: grid;
   place-items: center;
 }

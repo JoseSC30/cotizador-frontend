@@ -49,10 +49,10 @@ button {
 }
 
 :root {
-  --primary-color: #343EC1;
+  --primary-color: #b5835a; /*#343EC1;*/
   --secondary-color: #1A3A78;
   --tertiary-color: #5A67BA;
-  --background-color: #F5F2F2;
+  --background-color: #fdf8f1;
   --text-color-1: #1B1B1B;
   --text-color-2: #747474;
   --text-color-3: #575F6E;

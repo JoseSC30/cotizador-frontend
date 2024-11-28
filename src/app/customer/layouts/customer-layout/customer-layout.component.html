@@ -1,14 +1,33 @@
 <div class="container-layout">
+  <!-- Navbar fija -->
   <div class="navbar" [ngClass]="{ 'full-width-navbar': showFullNavbar }">
     <app-navbar
       [routeHome]="'/dashboard/home'"
       [routeSetting]="'/dashboard/settings'"
     ></app-navbar>
   </div>
-  <div *ngIf="showSidebar">
+
+  <!-- Botón para alternar el menú lateral (solo en móviles y si no es la ruta de chats) -->
+  <button
+    *ngIf="isMobile && !showFullNavbar"
+    class="toggle-sidebar"
+    (click)="toggleSidebar()"
+  >
+    <i class="bx bx-menu"></i>
+  </button>
+
+  <!-- Menú lateral -->
+  <div
+    class="sidebar"
+    [ngClass]="{ 'show': showSidebar, 'hide': !showSidebar }"
+  >
     <app-sidebar [items]="menuItems"></app-sidebar>
   </div>
-  <div class="content-layout" [ngClass]="{ 'p-left': !showFullNavbar }">
+
+  <!-- Contenido principal -->
+  <div class="content-layout" [ngClass]="{ 'no-sidebar': !showSidebar }">
     <router-outlet></router-outlet>
   </div>
 </div>
+
+

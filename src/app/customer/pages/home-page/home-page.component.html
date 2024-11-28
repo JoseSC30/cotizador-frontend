@@ -3,8 +3,7 @@
     <div class="banner-content">
       <h3 class="banner-title">Cotizador con Inteligencia Artificial</h3>
       <p class="banner-paragraph">
-        A través de nuestra aplicación, puedes obtener estimaciones rápidas y
-        convenientes para la construcción de tu casa utilizando inteligencia
+        A través de nuestra aplicación, puedes obtener estimaciones rápidas para la constucción de tu mueble ideal utilizando inteligencia
         artificial.
       </p>
       <button routerLink="/dashboard/chats" class="btn btn-primary">
@@ -20,8 +19,7 @@
         <img src="./assets/images/img-price.png" alt="" class="about-icon" />
         <h3 class="about-title">Estimaciones Rápidas</h3>
         <p class="about-paragraph">
-          Obtén estimaciones rápidas y convenientes para la construcción de tu
-          casa.
+          Obtén estimaciones rápidas y convenientes para la construcción de tus muebles.
         </p>
       </article>
 
@@ -30,7 +28,7 @@
         <h3 class="about-title">Asesoría en Tiempo Real</h3>
         <p class="about-paragraph">
           Chatea con nuestros asesores en tiempo real para recibir orientación y
-          aclarar dudas.
+          aclarar dudas sobre el uso del sistema.
         </p>
       </article>
 
@@ -39,58 +37,89 @@
         <h3 class="about-title">Fácil de Usar</h3>
         <p class="about-paragraph">
           Nuestra aplicación es fácil de usar, incluso para aquellos sin
-          experiencia en construcción.
+          experiencia en construcción de muebles.
         </p>
       </article>
     </div>
   </section>
 
+
   <section class="price container">
-    <div class="price-content">
-      <div class="price-left">
-        <div class="price-header mb-20">
-          <img src="./assets/images/ic-group-price.png" alt="icon price" />
-          <div class="price-text ml-20">
-            <p class="price-paragraph">Para uso individual</p>
-            <h3 class="price-title">Plan Básico</h3>
+    <div class="price-row">
+      <!-- Plan Básico -->
+      <div class="price-content">
+        <div class="price-left">
+          <div class="price-header mb-20">
+            <img src="./assets/images/ic-group-price.png" alt="icon price" />
+            <div class="price-text ml-20">
+              <p class="price-paragraph">Para uso individual</p>
+              <h3 class="price-title">Plan Básico</h3>
+            </div>
           </div>
+          <p class="price-paragraph mb-20">
+            Accede a estimaciones rápidas para la construcción de tu mueble.
+          </p>
+          <p class="price-money"><span>$5</span> /mensual</p>
+          <button (click)="openPayPalModal()" class="btn btn-primary">
+            <i class="bx bxs-wallet-alt"></i>
+            Adquirir Membresía
+          </button>
         </div>
-        <p class="price-paragraph mb-20">
-          Accede a estimaciones rápidas y convenientes para la construcción de
-          tu casa.
-        </p>
-        <p class="price-money"><span>$5</span> /mensual</p>
-        <button (click)="openPayPalModal()" class="btn btn-primary">
-          <i class="bx bxs-wallet-alt"></i>
-          Adquirir Membresía
-        </button>
+        <div class="price-right">
+          <h3 class="price-title mb-20">Lo que incluye</h3>
+          <ul class="price-list">
+            <li>
+              <img src="./assets/images/ic-check.png" alt="img-icon-check" />10 estimaciones generadas por inteligencia artificial
+            </li>
+            <li>
+              <img src="./assets/images/ic-check.png" alt="img-icon-check" />Chat con asesores en tiempo real
+            </li>
+            <li>
+              <img src="./assets/images/ic-check.png" alt="img-icon-check" />Soporte técnico básico
+            </li>
+            <li>
+              <img src="./assets/images/ic-check.png" alt="img-icon-check" />Acceso individual
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="price-right">
-        <h3 class="price-title mb-20">Lo que incluye</h3>
-        <ul class="price-list">
-          <li>
-            <img
-              src="./assets/images/ic-check.png"
-              alt="img-icon-check"
-            />Estimaciones generadas por inteligencia artificial
-          </li>
-          <li>
-            <img src="./assets/images/ic-check.png" alt="img-icon-check" />Chat
-            en tiempo real con asesores
-          </li>
-          <li>
-            <img
-              src="./assets/images/ic-check.png"
-              alt="img-icon-check"
-            />Soporte técnico básico
-          </li>
-          <li>
-            <img
-              src="./assets/images/ic-check.png"
-              alt="img-icon-check"
-            />Acceso individual
-          </li>
-        </ul>
+
+      <!-- Plan Empresa -->
+      <div class="price-content">
+        <div class="price-left">
+          <div class="price-header mb-20">
+            <img src="./assets/images/ic-group-price.png" alt="icon price" />
+            <div class="price-text ml-20">
+              <p class="price-paragraph">Para uso Empresarial</p>
+              <h3 class="price-title">Plan Empresa</h3>
+            </div>
+          </div>
+          <p class="price-paragraph mb-20">
+            Accede a estimaciones y diseño a detalle para la construcción de tus muebles.
+          </p>
+          <p class="price-money"><span>$25</span> /mensual</p>
+          <button (click)="openPayPalModal()" class="btn btn-primary">
+            <i class="bx bxs-wallet-alt"></i>
+            Adquirir Membresía
+          </button>
+        </div>
+        <div class="price-right">
+          <h3 class="price-title mb-20">Lo que incluye</h3>
+          <ul class="price-list">
+            <li>
+              <img src="./assets/images/ic-check.png" alt="img-icon-check" />Estimaciones ilimitadas generadas por inteligencia artificial
+            </li>
+            <li>
+              <img src="./assets/images/ic-check.png" alt="img-icon-check" />Chat con asesores en tiempo real
+            </li>
+            <li>
+              <img src="./assets/images/ic-check.png" alt="img-icon-check" />Soporte técnico
+            </li>
+            <li>
+              <img src="./assets/images/ic-check.png" alt="img-icon-check" />Acceso colectivo
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -100,4 +129,6 @@
     [isOpen]="modalOpen"
     (onClose)="closePaypalModal()"
   ></app-modal-paypal>
+
+
 </div>

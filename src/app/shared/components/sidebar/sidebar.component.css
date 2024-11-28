@@ -1,5 +1,5 @@
 .sidebar {
-  background-color: #E0E0E0;
+  background-color: #6B4226; ;
   width: 240px;
   min-height: 100vh;
   position: fixed;
@@ -33,19 +33,9 @@
   font-size: 1.1rem;
   font-weight: 600;
   line-height: 1.2;
-  color: var(--secondary-color);
+  color: #fafafa;
 }
-/* .sidebar-logo span {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background-color: var(--tertiary-color);
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  margin: 0 15px 30px 0;
-} */
+
 
 .sidebar-menu-title {
   font-size: 1rem;
@@ -53,6 +43,7 @@
   color: var(--text-color-2);
   margin-bottom: 10px;
   text-transform: uppercase;
+  color: #F5F2F2;
 }
 
 .sidebar-menu-list {
@@ -76,7 +67,7 @@
 }
 .sidebar-menu-item:hover, .active {
   color: var(--primary-color);
-  background-color: #CFD0DD;
+  background-color: #ffe0b5;
 }
 
 
