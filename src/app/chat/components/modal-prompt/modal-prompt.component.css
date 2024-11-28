@@ -101,7 +101,8 @@
 }
 .content-radio label {
   text-wrap: nowrap;
-  color: var(--text-color-3);
+  color: var(--text-color-3);  
+
 }
 /* Estilo base para los radio buttons */
 .custom-radio {
@@ -121,7 +122,8 @@
 }
 /* Estilo para el círculo del radio button seleccionado */
 .custom-radio input:checked ~ .checkmark {
-  background-color: var(--tertiary-color);
+  /*background-color: var(--tertiary-color); */
+  background-color: #d4a373
 }
 /* Estilo para el círculo */
 .checkmark {
@@ -393,3 +395,19 @@
  .loader-square:nth-of-type(7) {
   animation-delay: -10s;
  }
+
+ /* Estilo para el botón "Generar Presupuesto" */
+.btn-primary {
+  background-color: #d4a373; /* Color de fondo */
+  border-color: #d4a373; /* Color del borde (si existe) */
+}
+
+.btn-primary:hover {
+  background-color: #c28d56; /* Color de fondo al pasar el mouse (más oscuro) */
+  border-color: #c28d56; /* Color del borde al pasar el mouse */
+}
+
+.btn-primary:disabled {
+  background-color: #e0c6a0; /* Color de fondo cuando está deshabilitado */
+  border-color: #e0c6a0; /* Color del borde cuando está deshabilitado */
+}
