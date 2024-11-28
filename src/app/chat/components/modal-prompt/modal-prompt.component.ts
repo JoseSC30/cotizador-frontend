@@ -21,6 +21,7 @@ export class ModalPromptComponent implements OnInit {
   public pendingRequests: number = 0;
   public limit: number = 10;
 
+  
   public opcionesTipo: string[] = [];
   //public tipoHabitaciones!: string[];
   public tipoSillas!: string[];
@@ -28,6 +29,12 @@ export class ModalPromptComponent implements OnInit {
   public tipoEstanterias!: string[];
   public tipoMesas!: string[];
   public tipoLabel!: string;
+  public tipoOtros!: string[];
+  public tipoClosetyArmarios!: string[];
+  public tipoSofasYSillones!: string[];
+  public tipoMueblesMultiuso!: string[];
+  public tipoMueblesInfantiles!: string[];
+
 
   public myForm!: FormGroup;
 
@@ -47,6 +54,7 @@ export class ModalPromptComponent implements OnInit {
       tipo: ['Silla', Validators.required],
       estilo: ['', Validators.required],
       tipoHabitacion: ['', Validators.required],
+      tipoMueble: ['', Validators.required],
       ancho: ['', Validators.required],
       largo: ['', Validators.required],
       alto: ['', Validators.required],
@@ -79,30 +87,87 @@ export class ModalPromptComponent implements OnInit {
       'Mesa de oficina',
       'Mesa auxiliar',
     ];
+   
+    this.tipoClosetyArmarios = [
+      'Estantería',
+      'Closet y Armarios',
+      'Sofas y Sillones',
+      'Muebles Multiuso',
+      'Camas',
+    ];
+    this.tipoSofasYSillones = [
+      'Sofá de dos plazas',
+      'Sillón reclinable',
+      'Sofá cama',
+    ];
+    this.tipoMueblesMultiuso = [
+      'Mueble con cama plegable',
+      'Mueble con escritorio integrado',
+    ];
+    this.tipoMueblesInfantiles = [
+      'Cama infantil',
+      'Armario infantil',
+      'Escritorio infantil',
+    ];
         
     this.onTipoSeleccionadoChange();
   }     
 
   onTipoSeleccionadoChange(): void {
     const tipoSeleccionado = this.myForm.get('tipo')?.value;
+  
     if (tipoSeleccionado === 'Silla') {
       this.opcionesTipo = this.tipoSillas;
       this.tipoLabel = 'silla';
+      this.myForm.get('tipoHabitacion')?.setValue(''); // Resetea solo al cambiar de categoría principal
     } else if (tipoSeleccionado === 'Escritorio') {
       this.opcionesTipo = this.tipoEscritorios;
       this.tipoLabel = 'escritorio';
+      this.myForm.get('tipoHabitacion')?.setValue('');
     } else if (tipoSeleccionado === 'Estanteria') {
       this.opcionesTipo = this.tipoEstanterias;
       this.tipoLabel = 'estanteria';
+      this.myForm.get('tipoHabitacion')?.setValue('');
     } else if (tipoSeleccionado === 'Mesa') {
       this.opcionesTipo = this.tipoMesas;
       this.tipoLabel = 'mesa';
+      this.myForm.get('tipoHabitacion')?.setValue('');
+    } else if (tipoSeleccionado === 'Otros') {
+      this.opcionesTipo = ['Closet y Armarios', 'Sofás y Sillones', 'Muebles Multiuso', 'Muebles Infantiles'];
+      this.tipoLabel = 'categorías';
+  
+      // **Mantén el valor seleccionado si ya existe**
+      if (!this.myForm.get('tipoHabitacion')?.value) {
+        this.myForm.get('tipoHabitacion')?.setValue('');
+      }
     } else {
       this.opcionesTipo = [];
+      this.tipoLabel = '';
+      this.myForm.get('tipoHabitacion')?.setValue('');
     }
-    // Reseteamos el valor del tipoHabitacion cuando cambia el tipoSeleccionado
-    this.myForm.get('tipoHabitacion')?.setValue('');
   }
+  
+  
+  onCategoriaOtrosSeleccionada(): void {
+    const categoriaSeleccionada = this.myForm.get('tipoHabitacion')?.value;
+  
+    if (categoriaSeleccionada === 'Closet y Armarios') {
+      this.opcionesTipo = ['Closet empotrado', 'Armario modular', 'Armario con puertas corredizas'];
+      this.tipoLabel = 'closet y armarios';
+    } else if (categoriaSeleccionada === 'Sofás y Sillones') {
+      this.opcionesTipo = ['Sofá cama', 'Sillón reclinable', 'Sofá seccional'];
+      this.tipoLabel = 'sofás y sillones';
+    } else if (categoriaSeleccionada === 'Muebles Multiuso') {
+      this.opcionesTipo = ['Cama abatible', 'Escritorio convertible', 'Mueble organizador'];
+      this.tipoLabel = 'muebles multiuso';
+    } else if (categoriaSeleccionada === 'Muebles Infantiles') {
+      this.opcionesTipo = ['Cama infantil', 'Estantería infantil', 'Mesa para niños'];
+      this.tipoLabel = 'muebles infantiles';
+    }
+  
+    // No resetees `tipoHabitacion` ni `tipoMueble`
+  }
+  
   
 
   addPrompt() {

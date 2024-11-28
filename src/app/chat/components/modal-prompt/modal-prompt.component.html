@@ -7,7 +7,7 @@
     <div class="modal-body">
       <form [formGroup]="myForm" (submit)="addPrompt()">
         <div class="col mb-20">
-          <label for="tipo">Tipo:</label>
+          <label for="tipo">Categoria:</label>
           <div class="content-radio">
             <label class="custom-radio"> Silla <input formControlName="tipo" value="Silla" type="radio"(change)="onTipoSeleccionadoChange()"/>
               <span class="checkmark"></span>
@@ -27,8 +27,33 @@
             <input formControlName="tipo" value="Mesa" type="radio" (change)="onTipoSeleccionadoChange()" />
             <span class="checkmark"></span>
           </label>
+
+          <label class="custom-radio"> Otros
+            <input formControlName="tipo" value="Otros" type="radio" (change)="onTipoSeleccionadoChange()" />
+            <span class="checkmark"></span>
+          </label>
           </div>
           <span *ngIf="isInvalidField('tipo')" class="text-danger"> * {{ getMessageError("tipo") }}</span>
+        </div>
+         <!-- Nuevo bloque para seleccionar subtipo -->
+        <!-- Si selecciona "Otros", muestra las categorías -->
+        <div class="row grid-container mb-20" *ngIf="myForm.get('tipo')?.value === 'Otros'">
+          <div class="col">
+            <label for="categoria">Seleccione una categoría:</label>
+            <select
+              class="form-control"
+              formControlName="tipoHabitacion"
+              id="categoria"
+              (change)="onCategoriaOtrosSeleccionada()">
+              <option value="">Seleccione una opción</option>
+              <option *ngFor="let categoria of ['Closet y Armarios', 'Sofás y Sillones', 'Muebles Multiuso', 'Muebles Infantiles']" [value]="categoria">
+                {{ categoria }}
+              </option>
+            </select>
+            <span *ngIf="isInvalidField('tipoHabitacion')" class="text-danger">
+              * {{ getMessageError('tipoHabitacion') }}
+            </span>
+          </div>
         </div>
 
         <div class="row grid-container mb-20">
@@ -48,12 +73,12 @@
 
 
           <div class="col">
-            <label for="categoria">Tipo de {{ tipoLabel }}:</label>
+            <label for="tipoMueble">Tipo de {{ tipoLabel }}:</label>
             <select class="form-control" formControlName="tipoHabitacion" id="categoria">
               <option value="">Seleccione una opción</option>
               <option [value]="tipo" *ngFor="let tipo of opcionesTipo"> {{ tipo }} </option>
             </select>
-            <span *ngIf="isInvalidField('tipoHabitacion')" class="text-danger"> * {{ getMessageError("tipoHabitacion") }} </span>
+            <span *ngIf="isInvalidField('tipoMueble')" class="text-danger"> * {{ getMessageError("tipoMueble") }} </span>
           </div>
         </div>
 
