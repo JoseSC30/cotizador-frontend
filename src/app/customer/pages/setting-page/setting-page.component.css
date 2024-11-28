@@ -1,5 +1,6 @@
 .container-settings {
-  padding: 40px 60px;  
+  /*padding: 40px 60px;  */
+  padding: 20px; 
 }
 .settings-header {
   margin-bottom: 30px;
@@ -25,9 +26,12 @@
   overflow: hidden;
   box-shadow: 1px 1px 4px rgba(52, 61, 193, 0.1);
 }
+
 .profile-header, .profile-content, .profile-footer {
   padding: 30px 40px;
+  
 }
+
 .profile-header {
   border-bottom: 1px solid var(--text-color-4);
 }
@@ -41,7 +45,9 @@
 .profile-content {
   padding-top: 50px;
   border-bottom: 1px solid var(--text-color-4);
+
 }
+
 
 .profile-footer {
   text-align: end;
@@ -50,10 +56,14 @@
   width: max-content;
   padding: 10px 20px;
 }
+
 .btn-success {
   margin-left: 10px;
 }
 
+.form-group {
+  flex: 1 1 calc(50% - 10px); /* Mantener dos columnas en vista web */
+}
 
 /* IMAGE PROFILE */
 .profile-photo {
@@ -75,20 +85,7 @@
   z-index: 0;
 }
 
-/* .image-preview:hover::before {
-  content: "Cambiar imagen";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  color: var(--text-color-2);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 12px;
-  white-space: nowrap;
-} */
+
 
 #image-preview {
   max-width: 100%;
@@ -181,6 +178,7 @@
 .content-radio label {
   text-wrap: nowrap;
 }
+
 /* Estilo base para los radio buttons */
 .custom-radio {
   display: inline-block;
@@ -231,4 +229,30 @@
   background: white;
 }
 
+/* RESPONSIVIDAD */
+/* Para móvil: formulario ocupa todo el ancho */
+@media (max-width: 768px) {
+  .settings-profile {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    box-shadow: none; /* Quitar sombra si es necesario */
+    border-radius: 0; /* Quitar bordes redondeados */
+  }
 
+  .form-group input,
+  .form-group {
+    width: 100%; /* Hacer que los inputs ocupen todo el ancho */
+    box-sizing: border-box; /* Incluir padding y bordes */
+  }
+
+  .profile-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar botones */
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%; /* Botones ocupan todo el ancho */
+    max-width: 300px; /* Limitar tamaño en pantallas más pequeñas */
+  }
+}

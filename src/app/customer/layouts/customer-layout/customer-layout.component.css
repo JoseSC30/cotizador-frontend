@@ -1,24 +1,96 @@
 .container-layout {
-  background-color: var(--background-color); 
+  background-color: var(--background-color);
   width: 100%;
-  min-height: 100vh; 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .content-layout {
-  padding: 70px 0px 0px 0px;
+  padding: 70px 0px 0px 240px; /* Espacio para el menú lateral */
+  transition: padding 0.3s ease;
+}
+
+.content-layout.no-sidebar {
+  padding: 70px 20px 0px 20px; /* Sin espacio para el menú lateral */
 }
 
 .navbar {
   position: fixed;
   top: 0;
-  left: 220px;
+  left: 240px; /* Alineado con el menú lateral */
   right: 0;
   z-index: 999;
+  
 }
-.full-width-navbar {
+
+.navbar.full-width-navbar {
+  left: 0; /* Expandir navbar cuando el menú lateral está oculto */
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
   left: 0;
+  width: 240px;
+  height: 100%;
+  background-color: #b5835a; /* Marrón oscuro */
+  z-index: 1000;
+  transform: translateX(-100%); /* Ocultar por defecto */
+  transition: transform 0.3s ease;
 }
-.p-left {
-  padding-left: 240px;
+
+.sidebar.show {
+  transform: translateX(0); /* Mostrar menú lateral */
+}
+
+.sidebar.hide {
+  transform: translateX(-100%); /* Ocultar menú lateral */
+}
+
+.toggle-sidebar {
+  display: none;
+  position: fixed;
+  top: 15px; /* Reducir el espacio desde la parte superior */
+  left: 15px; /* Reducir el espacio desde el lado izquierdo */
+  z-index: 1001;
+  background-color: #d4a373; /* Terracota */
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-sidebar:hover {
+  background-color: #c3906e; /* Color más oscuro para hover */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .content-layout {
+    padding-left: 0; /* Sin espacio lateral en móviles */
+  }
+
+  .sidebar {
+    transform: translateX(-100%); /* Ocultar menú lateral */
+  }
+
+  .sidebar.show {
+    transform: translateX(0); /* Mostrar menú lateral */
+  }
+
+  .toggle-sidebar {
+    display: flex; /* Mostrar botón en móviles */
+  }
+
+  .navbar {
+    left: 0;
+  }
 }
 

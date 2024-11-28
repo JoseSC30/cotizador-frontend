@@ -8,11 +8,12 @@
   overflow: hidden;
 }
 
+
 /* Banner */
 .banner {
   min-height: 220px;
   background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%),
-    url("src/assets/images/img-dashboard-home.png");
+    url("src/assets/images/rosaHome.png");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -27,6 +28,7 @@
   font-size: 1.3rem;
   font-weight: 500;
   margin-bottom: 15px;
+  
 }
 .banner-paragraph {
   font-size: 1rem;
@@ -82,15 +84,25 @@
 
 .about-icon {
   width: 50px;
+  
 }
 
 /* Price */
+.price-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Espacio entre tarjetas */
+  flex-wrap: wrap; /* Permite que las tarjetas se apilen en pantallas pequeñas */
+  
+} 
+
 .price {
   padding-bottom: 100px;
 }
 .price .subtitle,
 .price .paragraph {
   max-width: 700px;
+  
 }
 .price-content {
   display: flex;
@@ -101,6 +113,9 @@
   border-radius: 30px;
   width: 80%;
   overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+
+  
 }
 .price-left,
 .price-right {
@@ -122,7 +137,7 @@
   text-align: left;
 }
 .price-title {
-  color: var(--text-color-8);
+  color: #b5835a;
 }
 .price-paragraph,
 .price-money {
@@ -135,7 +150,7 @@
 .price-money span {
   font-size: 3.2rem;
   font-weight: 600;
-  color: var(--text-color-8);
+  color: #b5835a;
 }
 .price-list {
   list-style: none;

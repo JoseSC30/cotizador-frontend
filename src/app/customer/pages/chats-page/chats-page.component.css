@@ -11,10 +11,7 @@
   background-color: #EAEAEA;
   padding: 20px;
   height: 100vh;
-  /* position: fixed;
-  left: 30px;
-  top: 100px;
-  bottom: 30px; */
+
 }
 .sidebar-chats {
   flex: 1;
@@ -48,7 +45,7 @@
 }
 .btn-return:hover {
   border: 1px solid var(--tertiary-color);
-  box-shadow: 0 0 15px rgba(52, 61, 193, 0.3);
+  box-shadow: 0 0 15px #b5835a(52, 61, 193, 0.3);
 }
 .btn-new, .btn-return {
   display: flex;
@@ -79,6 +76,7 @@
 }
 .chat-footer {
   padding: 0px 10px 10px 10px;
+  
 }
 .chats-list h4, .chats-number {
   font-size: 1.1rem;
