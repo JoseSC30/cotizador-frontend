@@ -2,19 +2,19 @@
   <div class="sidebar-chats">
     <div class="chat-header">
         <h3 routerLink="/dashboard/chats" class="chat-title">
-          Chat a.i+
+          Diseña tus muebles aqui
         </h3>
         <button (click)="newChat()" class="btn btn-primary btn-new">
           <i class='bx bx-plus'></i>
-          Nuevo Chat
+          Nuevo Diseño
         </button>
         <div *ngIf="chats.length > 0">
           <div class="chats-number">
             <i class='bx bx-message-rounded-dots'></i>
             Chats iniciados {{ membership?.chatStock?.occupied }}/{{ membership?.chatStock?.chatsNumber }}
           </div>
-          <h4>Historial de chats</h4>
-        </div>
+          <!--<h4>Historial de chats</h4> -->
+        </div> 
     </div>
     <div class="chat">
       <div class="chats-list" *ngIf="chats.length > 0; else noChats">
@@ -39,7 +39,10 @@
         </ul>
       </div>
       <ng-template #noChats>
-        <p class="chat-empty">Inicia una conversación con un asesor.</p>
+       <!-- <p class="chat-empty">Inicia una conversación con un asesor.</p> -->
+       <p class="chat-empty"> Diseña y personaliza tus muebles ideales con nuestra plataforma. 
+        Explora estilos, materiales y dimensiones para crear piezas únicas adaptadas a tus espacios.
+         Además, genera presupuestos detallados de forma rápida y precisa, todo en un solo lugar.</p>
       </ng-template>
     </div>
     <div class="chat-footer">

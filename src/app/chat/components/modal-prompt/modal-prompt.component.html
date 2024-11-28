@@ -2,149 +2,98 @@
   <div class="modal-content">
     <button class="btn close-button" (click)="closeModal()">&times;</button>
 
-    <h3 class="modal-title">Generar Prompt</h3>
+    <h3 class="modal-title">DETALLAR MUEBLE</h3>
 
     <div class="modal-body">
       <form [formGroup]="myForm" (submit)="addPrompt()">
         <div class="col mb-20">
           <label for="tipo">Tipo:</label>
           <div class="content-radio">
-            <label class="custom-radio"
-              >Habitación
-              <input
-                formControlName="tipo"
-                value="Habitación"
-                type="radio"
-                (change)="onTipoSeleccionadoChange()"
-              />
+            <label class="custom-radio"> Silla <input formControlName="tipo" value="Silla" type="radio"(change)="onTipoSeleccionadoChange()"/>
               <span class="checkmark"></span>
             </label>
 
-            <label class="custom-radio"
-              >Cocina
-              <input
-                formControlName="tipo"
-                value="Cocina"
-                type="radio"
-                (change)="onTipoSeleccionadoChange()"
-              />
+            <label class="custom-radio"> Escritorio 
+              <input formControlName="tipo" value="Escritorio" type="radio"(change)="onTipoSeleccionadoChange()"/>
               <span class="checkmark"></span>
             </label>
 
-            <label class="custom-radio"
-              >Baño
-              <input
-                formControlName="tipo"
-                value="Baño"
-                type="radio"
-                (change)="onTipoSeleccionadoChange()"
-              />
+            <label class="custom-radio"> Estanteria 
+              <input formControlName="tipo" value="Estanteria" type="radio"(change)="onTipoSeleccionadoChange()"/>
               <span class="checkmark"></span>
             </label>
+
+            <label class="custom-radio">Mesa
+            <input formControlName="tipo" value="Mesa" type="radio" (change)="onTipoSeleccionadoChange()" />
+            <span class="checkmark"></span>
+          </label>
           </div>
-          <span *ngIf="isInvalidField('tipo')" class="text-danger">
-            * {{ getMessageError("tipo") }}
-          </span>
+          <span *ngIf="isInvalidField('tipo')" class="text-danger"> * {{ getMessageError("tipo") }}</span>
         </div>
 
         <div class="row grid-container mb-20">
           <div class="col">
-            <label for="estilo">Tipo de estilo:</label>
+            <label for="estilo">Estilo:</label>
             <select class="form-control" formControlName="estilo" id="estilo">
               <option value="">Seleccione una opción</option>
-              <option value="contemporáneo">Contemporáneo</option>
               <option value="moderno">Moderno</option>
-              <option value="rústico">Rústico</option>
-              <option value="mediterráneo">Mediterráneo</option>
-              <option value="colonial">Colonial</option>
               <option value="minimalista">Minimalista</option>
+              <option value="rústico">Rústico</option>
+              <option value="industrial">Industrial</option>
+              <option value="clasico">Clasico</option>
+              
             </select>
-            <span *ngIf="isInvalidField('estilo')" class="text-danger">
-              * {{ getMessageError("estilo") }}
-            </span>
+            <span *ngIf="isInvalidField('estilo')" class="text-danger"> * {{ getMessageError("estilo") }}</span>
           </div>
+
 
           <div class="col">
             <label for="categoria">Tipo de {{ tipoLabel }}:</label>
-            <select
-              class="form-control"
-              formControlName="tipoHabitacion"
-              id="categoria"
-            >
+            <select class="form-control" formControlName="tipoHabitacion" id="categoria">
               <option value="">Seleccione una opción</option>
-              <option [value]="tipo" *ngFor="let tipo of opcionesTipo">
-                {{ tipo }}
-              </option>
+              <option [value]="tipo" *ngFor="let tipo of opcionesTipo"> {{ tipo }} </option>
             </select>
-            <span *ngIf="isInvalidField('tipoHabitacion')" class="text-danger">
-              * {{ getMessageError("tipoHabitacion") }}
-            </span>
+            <span *ngIf="isInvalidField('tipoHabitacion')" class="text-danger"> * {{ getMessageError("tipoHabitacion") }} </span>
           </div>
         </div>
 
         <div class="grid-container-3 mb-20">
           <div class="col">
             <label for="ancho">Ancho (m):</label>
-            <input
-              formControlName="ancho"
-              class="form-control"
-              type="number"
-              placeholder="0"
-              name=""
-              id="ancho"
-              min="2"
-              max="6"
-            />
-            <span *ngIf="isInvalidField('ancho')" class="text-danger">
-              * {{ getMessageError("ancho") }}
-            </span>
+            <input formControlName="ancho" class="form-control" type="number" placeholder="0" name="" id="ancho" min="2" max="6"/>
+            <span *ngIf="isInvalidField('ancho')" class="text-danger"> * {{ getMessageError("ancho") }} </span>
           </div>
 
           <div class="col">
             <label for="largo">Largo (m):</label>
-            <input
-              formControlName="largo"
-              class="form-control"
-              type="number"
-              placeholder="0"
-              name=""
-              id="largo"
-              min="2"
-              max="6"
-            />
-            <span *ngIf="isInvalidField('largo')" class="text-danger">
-              * {{ getMessageError("largo") }}
-            </span>
+            <input formControlName="largo" class="form-control" type="number" placeholder="0" name=""  id="largo" min="2" max="6"/>
+            <span *ngIf="isInvalidField('largo')" class="text-danger"> * {{ getMessageError("largo") }} </span>
           </div>
 
           <div class="col">
             <label for="alto">Alto (m):</label>
-            <input
-              formControlName="alto"
-              class="form-control"
-              type="number"
-              placeholder="0"
-              name=""
-              id="alto"
-              min="2"
-              max="6"
-            />
-            <span *ngIf="isInvalidField('alto')" class="text-danger">
-              * {{ getMessageError("alto") }}
-            </span>
+            <input formControlName="alto" class="form-control" type="number" placeholder="0" name="" id="alto" min="2" max="6"/>
+            <span *ngIf="isInvalidField('alto')" class="text-danger"> * {{ getMessageError("alto") }} </span>
           </div>
         </div>
 
         <div class="grid-container mb-40">
           <div class="col">
-            <label for="obra">Tipo de obra:</label>
-            <select class="form-control" formControlName="tipoObra" id="obra">
-              <option value="">Seleccione un tipo de obra</option>
-              <option value="obra gris">Obra gris</option>
-              <option value="obra blanca">Obra blanca</option>
+            <label for="materiall">Material :</label>
+            <!-- <select class="form-control" formControlName="tipoObra" id="obra"> -->
+            <select class="form-control" formControlName="material" id="materiall">
+              <option value="">Seleccione un tipo de material</option>
+            <!--  <option value="obra gris">Obra gris</option> 
+              <option value="obra blanca">Obra blanca</option> -->
+              <option value="madera">Madera</option> 
+              <option value="aglomerado">Aglomerado</option> 
+              <option value="melamina">Melamina</option> 
+              <option value="metal">Metal</option> 
+              <option value="cristal">Cristal</option>
+              <option value="tapizado">Tapizado</option>
             </select>
-            <span *ngIf="isInvalidField('tipoObra')" class="text-danger">
-              * {{ getMessageError("tipoObra") }}
+            <span *ngIf="isInvalidField('material')" class="text-danger">
+              * {{ getMessageError("material") }}
             </span>
           </div>
         </div>
@@ -156,16 +105,12 @@
             [disabled]="resultPromptPresupuesto.length == 0"
             (click)="onSubmit()"
             class="btn btn-primary"
-          >
-            Generar Presupuesto
+          > Generar Presupuesto
           </button>
         </div>
       </form>
 
-      <div
-        *ngIf="resultPromptPresupuesto && resultPromptPresupuesto.length > 0"
-        class="prompt-presupuesto"
-      >
+      <div *ngIf="resultPromptPresupuesto && resultPromptPresupuesto.length > 0" class="prompt-presupuesto">
         {{ resultPromptPresupuesto }}
       </div>
     </div>

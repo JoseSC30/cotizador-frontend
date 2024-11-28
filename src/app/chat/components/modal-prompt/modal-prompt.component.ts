@@ -22,9 +22,11 @@ export class ModalPromptComponent implements OnInit {
   public limit: number = 10;
 
   public opcionesTipo: string[] = [];
-  public tipoHabitaciones!: string[];
-  public tipoCocinas!: string[];
-  public tipoBaños!: string[];
+  //public tipoHabitaciones!: string[];
+  public tipoSillas!: string[];
+  public tipoEscritorios!: string[];
+  public tipoEstanterias!: string[];
+  public tipoMesas!: string[];
   public tipoLabel!: string;
 
   public myForm!: FormGroup;
@@ -42,57 +44,66 @@ export class ModalPromptComponent implements OnInit {
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
-      tipo: ['Habitación', Validators.required],
+      tipo: ['Silla', Validators.required],
       estilo: ['', Validators.required],
       tipoHabitacion: ['', Validators.required],
       ancho: ['', Validators.required],
       largo: ['', Validators.required],
       alto: ['', Validators.required],
-      tipoObra: ['', Validators.required],
+      material: ['', Validators.required],
     });
 
-    this.tipoHabitaciones = [
-      'Dormitorio matrimonial',
-      'Dormitorio infantil',
-      'Dormitorio para huéspedes',
-      'Dormitorio individual',
+    //this.tipoHabitaciones = [
+      this.tipoSillas = [
+      //'Dormitorio matrimonial',
+      'Silla de comedor',
+      'Silla de oficina',
+      'Silla de jardin',
     ];
 
-    this.tipoCocinas = [
-      'Cocina en línea',
-      'Cocina en isla',
-      'Cocina en paralelo o dos frentes',
-      'Cocina en forma de L',
-      'Cocina en forma de U',
+    this.tipoEscritorios = [
+      'Escritorio para recepción',
+      'Escritorio para ordenador',
+      'Escritorio de estudio',
     ];
     
-    this.tipoBaños = [
-      'Baño completo',
-      'Baño de cortesía',
-      'Baño de servicio',
-      'Baño en suite',
-    ]
+    this.tipoEstanterias = [
+      'Estanteria para oficiona',
+      'Estanteria para casa',
+      'Estanteria para negocio',
+    ];
 
+    this.tipoMesas = [
+      'Mesa de comedor',
+      'Mesa de centro',
+      'Mesa de oficina',
+      'Mesa auxiliar',
+    ];
+        
     this.onTipoSeleccionadoChange();
-  }
+  }     
 
   onTipoSeleccionadoChange(): void {
     const tipoSeleccionado = this.myForm.get('tipo')?.value;
-    if (tipoSeleccionado === 'Habitación') {
-      this.opcionesTipo = this.tipoHabitaciones;
-      this.tipoLabel = 'habitación';
-    } else if (tipoSeleccionado === 'Cocina') {
-      this.opcionesTipo = this.tipoCocinas;
-      this.tipoLabel = 'cocina';
-    } else if (tipoSeleccionado === 'Baño') {
-      this.opcionesTipo = this.tipoBaños;
-      this.tipoLabel = 'baño';
+    if (tipoSeleccionado === 'Silla') {
+      this.opcionesTipo = this.tipoSillas;
+      this.tipoLabel = 'silla';
+    } else if (tipoSeleccionado === 'Escritorio') {
+      this.opcionesTipo = this.tipoEscritorios;
+      this.tipoLabel = 'escritorio';
+    } else if (tipoSeleccionado === 'Estanteria') {
+      this.opcionesTipo = this.tipoEstanterias;
+      this.tipoLabel = 'estanteria';
+    } else if (tipoSeleccionado === 'Mesa') {
+      this.opcionesTipo = this.tipoMesas;
+      this.tipoLabel = 'mesa';
     } else {
       this.opcionesTipo = [];
     }
     // Reseteamos el valor del tipoHabitacion cuando cambia el tipoSeleccionado
     this.myForm.get('tipoHabitacion')?.setValue('');
   }
+  
 
   addPrompt() {
     if (this.myForm.invalid) {
@@ -109,36 +120,41 @@ export class ModalPromptComponent implements OnInit {
 
     this.agregarPrompt(data);
     this.generarPromptImage(data);
+  
   }
 
   generarPromptImage(data: any) {
     const { estilo, tipoHabitacion } = data;
-    const promptImage = `Genera una imagen de un plano de una sola planta en 3D con vista de frente de un ${tipoHabitacion} con un estilo ${estilo}.`;
+    const promptImage = `Genera una imagen de un plano de la elaboracion de un mueble en 3D con vista de frente de un ${tipoHabitacion} con un estilo ${estilo}.`;
     this.resultPromptsImages.push(promptImage);
 
     console.log('Results Images', this.resultPromptsImages);
   }
 
   agregarPrompt(data: any) {
-    const { tipo, estilo, tipoHabitacion, ancho, largo, alto, tipoObra } = data;
-
-    if (tipo == 'Habitación') {
-      const habitacion = `un ${tipoHabitacion} con un ancho de ${ancho} metros, un largo de ${largo} metros y un alto de ${alto} metros`;
-      this.prompts.push(habitacion);
-    } else if (tipo == 'Cocina') {
-      const cocina = `una ${tipoHabitacion} con un ancho de ${ancho} metros, un largo de ${largo} metros y un alto de ${alto} metros`;
-      this.prompts.push(cocina);
-    } else if (tipo == 'Baño') {
-      const baño = `un ${tipoHabitacion} con un ancho de ${ancho} metros, un largo de ${largo} metros y un alto de ${alto} metros`;
-      this.prompts.push(baño);
+    const { tipo, estilo, tipoHabitacion, ancho, largo, alto, material } = data;
+  
+    if (tipo == 'Silla') {
+      const silla = `un ${tipoHabitacion} con un ancho de ${ancho} metros, un largo de ${largo} metros y un alto de ${alto} metros`;
+      this.prompts.push(silla);
+    } else if (tipo == 'Escritorio') {
+      const escritorio = `una ${tipoHabitacion} con un ancho de ${ancho} metros, un largo de ${largo} metros y un alto de ${alto} metros`;
+      this.prompts.push(escritorio);
+    } else if (tipo == 'Estanteria') {
+      const estanteria = `un ${tipoHabitacion} con un ancho de ${ancho} metros, un largo de ${largo} metros y un alto de ${alto} metros`;
+      this.prompts.push(estanteria);
+    } else if (tipo == 'Mesa') {
+      const mesa = `una ${tipoHabitacion} con un ancho de ${ancho} metros, un largo de ${largo} metros y un alto de ${alto} metros`;
+      this.prompts.push(mesa);
     }
-
+  
     this.generarPromptPresupuesto(data);
   }
+  
 
   generarPromptPresupuesto(data: any) {
     const habitacionesString = this.prompts.join(', ');
-    this.resultPromptPresupuesto = `Genera un presupuesto aproximado para la construcción de ${habitacionesString} en Bolivia. El estilo que debe tener esta construcción es ${data.estilo} y el tipo de obra es ${data.tipoObra}.`;
+    this.resultPromptPresupuesto = `Genera un presupuesto aproximado para la elaboracion de ${habitacionesString}. El estilo que debe tener la elaboracion de de este mueble es ${data.estilo} y el tipo de material es ${data.material}.`;
     console.log('Result Prompt Presupuesto: ', this.resultPromptPresupuesto);
   }
 
@@ -213,13 +229,13 @@ export class ModalPromptComponent implements OnInit {
 
   resetAll() {
     this.myForm.reset({
-      tipo: 'Habitación',
+      tipo: 'Silla',
       estilo: '',
       tipoHabitacion: '',
       ancho: '',
       largo: '',
       alto: '',
-      tipoObra: '',
+      material: '',
     });
     this.prompts = [];
     this.resultPromptPresupuesto = '';
