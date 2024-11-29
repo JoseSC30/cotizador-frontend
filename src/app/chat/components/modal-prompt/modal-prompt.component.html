@@ -60,19 +60,19 @@
         <div class="grid-container-3 mb-20">
           <div class="col">
             <label for="ancho">Ancho (m):</label>
-            <input formControlName="ancho" class="form-control" type="number" placeholder="0" name="" id="ancho" min="2" max="6"/>
+            <input formControlName="ancho" class="form-control" type="number" placeholder="0" name="" id="ancho" min="1" max="2000"/>
             <span *ngIf="isInvalidField('ancho')" class="text-danger"> * {{ getMessageError("ancho") }} </span>
           </div>
 
           <div class="col">
             <label for="largo">Largo (m):</label>
-            <input formControlName="largo" class="form-control" type="number" placeholder="0" name=""  id="largo" min="2" max="6"/>
+            <input formControlName="largo" class="form-control" type="number" placeholder="0" name=""  id="largo" min="1" max="2000"/>
             <span *ngIf="isInvalidField('largo')" class="text-danger"> * {{ getMessageError("largo") }} </span>
           </div>
 
           <div class="col">
             <label for="alto">Alto (m):</label>
-            <input formControlName="alto" class="form-control" type="number" placeholder="0" name="" id="alto" min="2" max="6"/>
+            <input formControlName="alto" class="form-control" type="number" placeholder="0" name="" id="alto" min="1" max="2000"/>
             <span *ngIf="isInvalidField('alto')" class="text-danger"> * {{ getMessageError("alto") }} </span>
           </div>
         </div>
