@@ -13,12 +13,12 @@
               <span class="checkmark"></span>
             </label>
 
-            <label class="custom-radio"> Escritorio 
+            <label class="custom-radio"> Escritorio
               <input formControlName="tipo" value="Escritorio" type="radio"(change)="onTipoSeleccionadoChange()"/>
               <span class="checkmark"></span>
             </label>
 
-            <label class="custom-radio"> Estanteria 
+            <label class="custom-radio"> Estanteria
               <input formControlName="tipo" value="Estanteria" type="radio"(change)="onTipoSeleccionadoChange()"/>
               <span class="checkmark"></span>
             </label>
@@ -41,7 +41,7 @@
               <option value="rústico">Rústico</option>
               <option value="industrial">Industrial</option>
               <option value="clasico">Clasico</option>
-              
+
             </select>
             <span *ngIf="isInvalidField('estilo')" class="text-danger"> * {{ getMessageError("estilo") }}</span>
           </div>
@@ -60,19 +60,19 @@
         <div class="grid-container-3 mb-20">
           <div class="col">
             <label for="ancho">Ancho (m):</label>
-            <input formControlName="ancho" class="form-control" type="number" placeholder="0" name="" id="ancho" min="1" max="2000"/>
+            <input formControlName="ancho" class="form-control" type="number" placeholder="0" name="" id="ancho" min="0.1" max="2000"/>
             <span *ngIf="isInvalidField('ancho')" class="text-danger"> * {{ getMessageError("ancho") }} </span>
           </div>
 
           <div class="col">
             <label for="largo">Largo (m):</label>
-            <input formControlName="largo" class="form-control" type="number" placeholder="0" name=""  id="largo" min="1" max="2000"/>
+            <input formControlName="largo" class="form-control" type="number" placeholder="0" name=""  id="largo" min="0.1" max="2000"/>
             <span *ngIf="isInvalidField('largo')" class="text-danger"> * {{ getMessageError("largo") }} </span>
           </div>
 
           <div class="col">
             <label for="alto">Alto (m):</label>
-            <input formControlName="alto" class="form-control" type="number" placeholder="0" name="" id="alto" min="1" max="2000"/>
+            <input formControlName="alto" class="form-control" type="number" placeholder="0" name="" id="alto" min="0.1" max="2000"/>
             <span *ngIf="isInvalidField('alto')" class="text-danger"> * {{ getMessageError("alto") }} </span>
           </div>
         </div>
@@ -83,12 +83,12 @@
             <!-- <select class="form-control" formControlName="tipoObra" id="obra"> -->
             <select class="form-control" formControlName="material" id="materiall">
               <option value="">Seleccione un tipo de material</option>
-            <!--  <option value="obra gris">Obra gris</option> 
+            <!--  <option value="obra gris">Obra gris</option>
               <option value="obra blanca">Obra blanca</option> -->
-              <option value="madera">Madera</option> 
-              <option value="aglomerado">Aglomerado</option> 
-              <option value="melamina">Melamina</option> 
-              <option value="metal">Metal</option> 
+              <option value="madera">Madera</option>
+              <option value="aglomerado">Aglomerado</option>
+              <option value="melamina">Melamina</option>
+              <option value="metal">Metal</option>
               <option value="cristal">Cristal</option>
               <option value="tapizado">Tapizado</option>
             </select>
@@ -128,7 +128,7 @@
         <div class="loader-square"></div>
       </div>
       <!-- <div class="loader--text"></div> -->
-      
+
       <div *ngIf="!isReady">
         <div class="loader--text images"></div>
         <div class="loader-text">
