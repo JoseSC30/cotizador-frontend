@@ -22,18 +22,10 @@ export class SidebarChatComponent implements OnInit {
   public modalOpen: boolean = false;
 
   private adjectives: string[] = [
-    'Asesoramiento',
-    'Consulta',
-    'Cotización',
-    'Evaluación',
-    'Revisión',
+    'Diseño y cotizacion de ',
   ];
   private nouns: string[] = [
-    'Casa',
-    'Habitación',
-    'Proyecto',
-    'Construcción',
-    'Diseño',
+    'muebles',
   ];
 
   constructor(
