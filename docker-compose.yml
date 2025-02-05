@@ -1,0 +1,21 @@
+services:
+  frontend1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        API_URL: http://backend:3000/api/
+    container_name: cotizador-frontend1
+    ports:
+      - "80:80"
+    # environment:
+    #   NODE_ENV: production
+    #   API_URL: http://backend:3000/api
+    restart: unless-stopped
+    networks:
+      - swcotizador-network
+
+networks:
+  swcotizador-network:
+    # driver: bridge
+    external: true

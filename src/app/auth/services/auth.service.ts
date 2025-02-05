@@ -62,6 +62,7 @@ export class AuthService implements OnInit, OnDestroy {
   // Inicio de sesión
   login(email: string, password: string): Observable<UserCurrent> {
     const url = `${this.baseUrl}/auth/login`;
+    //const url = 'http://localhost:3010/api/auth/login'
     const body = { email, password };
 
     return this.http.post<LoginResponse>(url, body).pipe(

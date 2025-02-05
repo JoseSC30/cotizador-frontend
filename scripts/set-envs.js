@@ -1,3 +1,4 @@
+console.log(process.env.API_URL);
 const { writeFileSync, mkdirSync } = require('fs');
 require('dotenv').config();
 
