@@ -1,11 +1,12 @@
 services:
-  frontend1:
+  fronte-nd25:
     build:
       context: .
       dockerfile: Dockerfile
       args:
-        API_URL: http://backend:3000/api/
-    container_name: cotizador-frontend1
+        # API_URL: http://localhost:3010/api
+        API_URL: http://13.93.147.122:3010/api
+    container_name: cotizador-frontend25
     ports:
       - "80:80"
     # environment:
